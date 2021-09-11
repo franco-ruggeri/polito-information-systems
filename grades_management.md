@@ -2,7 +2,7 @@
 
 ## Description
 
-In  a secondary school each student (14 -18 years old) follows a certain number of subjects.  Each subject is taught by a certain teacher.  During the academic year the teacher assigns to each student a certain number of grades for the subject, as an evaluation of oral interrogations, written tests or projects.
+In a secondary school each student (14-18 years old) follows a certain number of subjects. Each subject is taught by a certain teacher. During the academic year the teacher assigns to each student a certain number of grades for the subject, as an evaluation of oral interrogations, written tests or projects.
 The academic year is divided in two terms. At the end of each term each teacher decides a summary grade for the subject. The grade is not a mathematical average of grades taken during the term. An evaluation report is produced for each student and subject.
 At the end of the academic year (june) another evaluation report is prepared. This final one is issued by a committee made by all teachers, and contains, beyond a summary grade for each subject and student, a global pass/fail result for the student.
 
@@ -13,3 +13,12 @@ Grades are written on a paper book. Evaluation reports (at end of term, at end o
 Propose a new paperless process. Assume that all parents (and students at 18 years old) have a SPID identity.
 
 ## Lab 1 - Data model
+
+<details>
+  <summary>PlantUML</summary>
+  
+  ```plantuml:grade_management
+  ``` 
+</details>
+
+![](plantuml/grades_management.svg)
