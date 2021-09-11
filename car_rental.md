@@ -31,84 +31,90 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   ' CARS company
   class CARS
   class "Parking site" as ParkingSite
-  class Office
+  class Address
   class Employee
   class Car
   class "Car Model" as CarModel
-  class "Call center" as CallCenter
-  class "Web site" as WebSite
   CARS o-- "*" ParkingSite
-  CARS o-- CallCenter
-  CARS o-- WebSite
   CARS -- "*" CarModel : offers >
-  ParkingSite -- Office : is close to <
   ParkingSite -- "*" Car : is parked in <
-  Office -- "*" Employee : works in <
-  Car "*" -- CarModel : is described by >
-  Car -- "*" : Insurance
+  ParkingSite -- "*" Employee : works in <
+  ParkingSite -- Address : located at >
+  Car "*" -- CarModel : describes <
   Car : +Tag
+  ParkingSite : +ID
+  Address : +City
+  Address : +Type
+  Address : +Name
+  Employee : +ID
+  Employee : +Name
+  Employee : +Surname
   
   ' Insurances
   class Insurer
   class Insurance
   Insurance "*" -- Insurer : provides >
   Insurance "*" -- Car : covered by <
+  Insurer : +ID
+  Insurer : +Name
   Insurance : +Type
   
   ' Customer
   class Customer
-  class "Credit card" as CreditCard
-  Customer -- CreditCard
+  class "Driver license" as DriverLicense
+  Customer -- DriverLicense
   Customer : +Name
+  Customer : +Surname
   Customer : +ID document
-  Customer : +Driving license
-  CreditCard : +Number
-  CreditCard : +Expiration date
+  DriverLicense : +ID
+  DriverLicense : +Expiration date
   
   ' Reservation
   class Reservation
-  class ReservationChannel
-  ReservationChannel <|-- CallCenter
-  ReservationChannel <|-- WebSite
   Reservation "*" -- Customer : reserves <
-  Reservation -- ReservationChannel : done using >
   Reservation -- CarModel : reserves >
+  Reservation : +From date
+  Reservation : +To date
   
   ' Check-out - Part 1
   class Contract
+  class "Credit card" as CreditCard
   class Payment
   Contract "*" -- Customer : signs <
-  Contract -- "0..1" Reservation : relative to >
-  Contract -- Office : signs <
+  Contract "0..1" -- "0..1" Reservation : relative to >
+  Customer -- CreditCard
   Contract -- Payment : has payment >
   Contract -- Car : assigned to <
-  Contract : +Period start
-  Contract : +Period end
+  Contract : +From date
+  Contract : +To date
   Contract : +Customer's signature
-  Contract : +Office's signature
+  CreditCard : +Number
+  CreditCard : +Expiration date
   Payment : +Damage deposit
   Payment : +Partial fee
   Payment : +Total fee
   
   ' Check-out - Part 2
-  class "Check-out damage" as CheckoutDamage
+  class "Check-out" as Checkout
   class Damage
-  CheckoutDamage -- Contract : attached to >
-  CheckoutDamage -- "*" Damage : has >
-  CheckoutDamage "*" -- Customer : signs <
-  CheckoutDamage "*" -- Employee : signs <
-  CheckoutDamage : +Customer's signature
-  CheckoutDamage : +Employee's signature
+  Checkout -- Contract : attached to >
+  Checkout -- "*" Damage : has >
+  Checkout "*" -- Customer : signs <
+  Checkout "*" -- Employee : performs <
+  Checkout : +Customer's signature
+  Checkout : +Timestamp
   Damage : +Description
   
   ' Check-in
-  class "Check-in damage" as CheckinDamage
-  CheckinDamage -- Contract : relative to >
-  CheckinDamage -- "*" Damage : has new >
+  class "Check-in" as Checkin
+  Checkin -- Contract : relative to >
+  Checkin -- "*" Damage : has new >
+  Checkin : +Timestamp
   
   ' Invoice
   class Invoice
   Invoice -- Payment
+  Invoice : +ID
   ``` 
 </details>
 
