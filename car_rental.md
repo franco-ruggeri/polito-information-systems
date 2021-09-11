@@ -112,4 +112,4 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   ``` 
 </details>
 
-![](plantuml/car_rental)
+![](plantuml/car_rental.svg)
