@@ -17,7 +17,7 @@ Propose a new paperless process. Assume that all parents (and students at 18 yea
 <details>
   <summary>PlantUML</summary>
   
-  ```plantuml:grade_management
+  ```plantuml:grades_management
   class School
   class Subject
   class Teacher
