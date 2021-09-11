@@ -62,7 +62,9 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   ' Customer
   class Customer
   class "Driver license" as DriverLicense
+  class "Credit card" as CreditCard
   Customer -- DriverLicense
+  Customer -- CreditCard
   Customer : +Name
   Customer : +Surname
   Customer : +ID document
@@ -77,17 +79,15 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   Reservation : +To date
   
   ' Check-out - Part 1
-  class Contract
-  class "Credit card" as CreditCard
+  class "Rental contract" as RentalContract
   class Payment
-  Contract "*" -- Customer : signs <
-  Contract "0..1" -- "0..1" Reservation : relative to >
-  Customer -- CreditCard
-  Contract -- Payment : has payment >
-  Contract -- Car : assigned to <
-  Contract : +From date
-  Contract : +To date
-  Contract : +Customer's signature
+  RentalContract "*" -- Customer : signs <
+  RentalContract "0..1" -- "0..1" Reservation : relative to >
+  RentalContract -- Payment : has payment >
+  RentalContract -- Car : assigned to <
+  RentalContract : +From date
+  RentalContract : +To date
+  RentalContract : +Customer's signature
   CreditCard : +Number
   CreditCard : +Expiration date
   Payment : +Damage deposit
@@ -97,7 +97,7 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   ' Check-out - Part 2
   class "Check-out" as Checkout
   class Damage
-  Checkout -- Contract : attached to >
+  Checkout -- RentalContract : attached to >
   Checkout -- "*" Damage : has >
   Checkout "*" -- Customer : signs <
   Checkout "*" -- Employee : performs <
@@ -107,13 +107,13 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   
   ' Check-in
   class "Check-in" as Checkin
-  Checkin -- Contract : relative to >
+  Checkin -- RentalContract : relative to >
   Checkin -- "*" Damage : has new >
   Checkin : +Timestamp
   
   ' Invoice
   class Invoice
-  Invoice -- Payment
+  Invoice -- Payment : related to >
   Invoice : +ID
   ``` 
 </details>
