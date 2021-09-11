@@ -20,3 +20,68 @@ Propose a new process, fully online. Assume that both O and B have public digita
 Assume also this new process is supported by the PRA, that builds a dedicated web site, accessible by SPID. Also all payments must be performed online (no more stamps).
 
 ## Lab 1 - Data model
+
+<details>
+  <summary>PlantUML</summary>
+  
+  ```plantuml:vehicle_transfer
+  ' Vehicles that can circulate
+  class "Ufficio Motorizzazione Civile" as UMC
+  class "Registration document" as RegistrationDocument
+  class Vehicle
+  class "Vehicle size" as VehicleSize
+  class Tyre
+  
+  UMC -- "*" RegistrationDocument : issues >
+  RegistrationDocument -- Vehicle : refers to >
+  VehicleSize - Vehicle : has <
+  Vehicle o- "4" Tyre
+  
+  ' Ownership of vehicles
+  class "Automobile Club d’Italia" as ACI
+  class "Pubblico Registro Automobilistico" as PRA
+  class Person
+  class "Certificate of ownership" as CertificateOfOwnership
+  class "Past ownership" as PastOwnership
+  
+  ACI o-- PRA
+  PRA -- "*" CertificateOfOwnership : issues >
+  Vehicle -- CertificateOfOwnership : refers to <
+  CertificateOfOwnership "*" -- "Current owner\n1..*" Person
+  Vehicle "*" -- "Past owner\n*" Person
+  PastOwnership .. (Vehicle, Person)
+  
+  ' Transfer of ownership
+  class "Sale contract" as SaleContract
+  class Certifier
+  Person <|-- Certifier
+  Vehicle -- "*" SaleContract : sold >
+  SaleContract -- "1..*" Certifier : certificates <
+  SaleContract "*" -- "Seller" Person
+  SaleContract "*" -- "Buyer" Person
+                                                                
+  ' Attributes
+  RegistrationDocument : +Tag
+  RegistrationDocument : +Date
+  Vehicle : +ID
+  Vehicle : +Model
+  Vehicle : +Type of engine
+  Vehicle : +Type of emissions
+  Vehicle : +Power
+  VehicleSize : +Width
+  VehicleSize : +Length
+  Tyre : +Type
+    
+  CertificateOfOwnership : +Date
+  PastOwnership : +Start date
+  PastOwnership : +End date
+  Person : +Fiscal code
+  Person : +Name
+  Person : +Surname
+  
+  SaleContract : +Date
+  Certifier : +Type
+  ``` 
+</details>
+
+![](plantuml/vehicle_transfer.svg)
