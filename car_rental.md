@@ -75,8 +75,8 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   class Reservation
   Reservation "*" -- Customer : reserves <
   Reservation -- CarModel : reserves >
-  Reservation : +From date
-  Reservation : +To date
+  Reservation : +Start date
+  Reservation : +End date
   
   ' Check-out - Part 1
   class "Rental contract" as RentalContract
@@ -85,8 +85,8 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   RentalContract "0..1" -- "0..1" Reservation : relative to >
   RentalContract -- Payment : has payment >
   RentalContract -- Car : assigned to <
-  RentalContract : +From date
-  RentalContract : +To date
+  RentalContract : +Start date
+  RentalContract : +End date
   RentalContract : +Customer's signature
   CreditCard : +Number
   CreditCard : +Expiration date
@@ -102,14 +102,13 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   Checkout "*" -- Customer : signs <
   Checkout "*" -- Employee : performs <
   Checkout : +Customer's signature
-  Checkout : +Timestamp
   Damage : +Description
   
   ' Check-in
   class "Check-in" as Checkin
   Checkin -- RentalContract : relative to >
   Checkin -- "*" Damage : has new >
-  Checkin : +Timestamp
+  Checkin : +End date
   
   ' Invoice
   class Invoice
