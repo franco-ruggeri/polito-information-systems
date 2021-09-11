@@ -18,6 +18,41 @@ Propose a new paperless process. Assume that all parents (and students at 18 yea
   <summary>PlantUML</summary>
   
   ```plantuml:grade_management
+  class School
+  class Subject
+  class Teacher
+  class Student
+  class Evaluation
+  class "Term report" as TermReport
+  class "Year report" as YearReport
+  
+  School -- "*" Subject : provides >
+  School -- "*" Teacher : works in <
+  School -- "*" Student : studies in <
+  Student -- "*" Subject : is enrolled >
+  Student -- "*" Evaluation
+  Subject -- "*" Evaluation
+  Subject -- Teacher : teaches <
+  Subject -- "*" TermReport
+  Student -- "*" TermReport
+  Subject -- "*" YearReport
+  Student -- "*" YearReport
+  
+  Subject : +ID
+  Subject : +Name
+  Subject : +Description
+  Teacher : +ID
+  Teacher : +Name
+  Teacher : +Surname
+  Student : +ID
+  Student : +Name
+  Student : +Surname
+  Evaluation : +Grade
+  TermReport : +Year
+  TermReport : +Term
+  TermReport : +Grade
+  YearReport : +Year
+  YearReport : +P/F
   ``` 
 </details>
 
