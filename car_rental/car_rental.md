@@ -6,6 +6,7 @@ Car rental companies own a number of cars and a number of sites where cars are p
 We focus on the CARS company.
 
 ### AS IS process
+
 A customer may reserve a car, using the company web site, or the call center (this step is optional). 
 A customer steps into the office close to the rental car parking site and completes the first step of the check out. The contract for the rental is defined (period of rental, name of driver, related ID document and driving license, insurances, damage deposit, partial and total fees, credit card), signed by both parties, and the payment for the rental is completed (payment has two parts, rental and damage deposit – the latter is normally returned at the end of the rental).  Further, a specific car (identified by its tag) is assigned to the rental. 
 Then the customer walks to the car parking site. Here the second part of the check out happens. 
@@ -13,6 +14,7 @@ An employee checks with the customer the car and lists all visible damages on th
 The final step is check in. The customer drives the car to parking site. An employee receives the car and the keys, checks with the customer for new damages. If there are damages another process starts (we leave this process out of this analysis). At this point the rental ends. The company issues an invoice and possibly returns the damage deposit to the customer.
 
 ### TO BE process
+
 The idea is to improve the process by introducing the same innovations used by car sharing companies. 
 A customer has first to define an account with CARS. In this step the customer uploads his documents (ID, driving license) and a credit card. If all is right CARS approves and the customer can later rent cars. This step can be performed on a PC or smart phone. In any case the customer has to install the CARS app on her smartphone. 
 When a registered customer wants to rent a car she has to do a reservation (via app or PC). 
@@ -22,6 +24,19 @@ The check in is similar. The customer parks the car in the rental car parking, s
 Invoicing and payments proceed through the credit card. 
 Damage deposits and possibly damage reimboursements are avoided, introducing by default an insurance to cover all.
 
-## Lab 1 - Data model
+## Data model (Lab 1)
 
 ![](models/data.svg)
+
+## Organizational model (Lab 2)
+
+- CARS (Organization)
+  - Sales & Marketing (Organizational Unit)
+    - Call center (Organizational Unit)
+    - Office (Organizational Unit)
+      - Desk employee (Role)
+      - Car management employee (Role)
+  - Accounting (Organization Unit)
+  - IT area (Organizational Unit)
+    - Web site maintainer (Role)
+- Customer (Role)
