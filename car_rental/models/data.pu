@@ -1,0 +1,90 @@
+@startuml
+
+' CARS company
+class CARS
+class "Parking site" as ParkingSite
+class Address
+class Employee
+class Car
+class "Car Model" as CarModel
+CARS o-- "*" ParkingSite
+CARS -- "*" CarModel : offers >
+ParkingSite -- "*" Car : is parked in <
+ParkingSite -- "*" Employee : works in <
+ParkingSite -- Address : located at >
+Car "*" -- CarModel : describes <
+Car : +Tag
+ParkingSite : +ID
+Address : +City
+Address : +Type
+Address : +Name
+Employee : +ID
+Employee : +Name
+Employee : +Surname
+
+' Insurances
+class Insurer
+class Insurance
+Insurance "*" -- Insurer : provides >
+Insurance "*" -- Car : covered by <
+Insurer : +ID
+Insurer : +Name
+Insurance : +Type
+
+' Customer
+class Customer
+class "Driver license" as DriverLicense
+class "Credit card" as CreditCard
+Customer -- DriverLicense
+Customer -- CreditCard
+Customer : +Name
+Customer : +Surname
+Customer : +ID document
+DriverLicense : +ID
+DriverLicense : +Expiration date
+
+' Reservation
+class Reservation
+Reservation "*" -- Customer : reserves <
+Reservation -- CarModel : reserves >
+Reservation : +Start date
+Reservation : +End date
+
+' Check-out - Part 1
+class "Rental contract" as RentalContract
+class Payment
+RentalContract "*" -- Customer : signs <
+RentalContract "0..1" -- "0..1" Reservation : relative to >
+RentalContract -- Payment : has payment >
+RentalContract -- Car : assigned to <
+RentalContract : +Start date
+RentalContract : +End date
+RentalContract : +Customer's signature
+CreditCard : +Number
+CreditCard : +Expiration date
+Payment : +Damage deposit
+Payment : +Partial fee
+Payment : +Total fee
+
+' Check-out - Part 2
+class "Check-out" as Checkout
+class Damage
+Checkout -- RentalContract : attached to >
+Checkout -- "*" Damage : has >
+Checkout "*" -- Customer : signs <
+Checkout "*" -- Employee : performs <
+Checkout : +Customer's signature
+Damage : +Description
+
+' Check-in
+class "Check-in" as Checkin
+Checkin -- RentalContract : relative to >
+Checkin -- "*" Damage : has new >
+Checkin : +End date
+
+' Invoice
+class Invoice
+Invoice -- Payment : related to >
+Invoice : +ID
+
+@enduml
