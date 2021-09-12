@@ -33,10 +33,32 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 - CARS (Organization)
   - Sales & Marketing (Organizational Unit)
     - Call center (Organizational Unit)
-    - Office (Organizational Unit)
+    - Car parking office (Organizational Unit)
       - Desk employee (Role)
       - Car management employee (Role)
   - Accounting (Organization Unit)
   - IT area (Organizational Unit)
     - Web site maintainer (Role)
 - Customer (Role)
+
+## Process model (Lab 2)
+
+### High-level process
+
+| Name | Input | Output | Main Organizational roles involved | Description |
+| ---- | ----- | ------ | ---------------------------------- | ----------- |
+| Car rental | Car request | Car rented | Customer, Sales & Marketing, Accounting | The customer asks for a car (with optional previous reservation), signs a contract, pays, checks and signs the existing damages in the car, gets the car. |
+
+### Sub-processes
+
+| Name | Input | Output | Main Organizational roles involved | Description |
+| ---- | ----- | ------ | ---------------------------------- | ----------- |
+| Car reservation | Car request | Car reserved | Call center (if the customer chooses it instead of website) | The customer reserves a car via website or call center. |
+| Car rental contract | Car request | Contract signed and car rental paid | Customer, Desk employee, Accounting | The customer signs a contract and pays for the car rental, including a damage deposit. |
+| Car rental check-out | Contract signed and rental paid | Car rented | Customer, Car management employee | The customer checks with the car management employee for existings damages for the rented car, then signs the document listing them. |
+| Car rental check-in | Car rented | Car returned | Customer, Car management employee | The customer returns the car and checks with the car management employee for new damages. |
+| Invoice issue | Car returned | Invoice sent | Accounting | The company issues the invoice and possibly returns the damage deposit. |
+
+### BPMN
+
+![](models/process.bpmn)
