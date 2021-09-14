@@ -94,7 +94,7 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 | Sign-up | Account request | Account | Customer, rental office |  Check ID card, driving license and credit card, create account. |
 | Reservation | Reservation request | Reservation | Customer, rental office |  Check car availability, reserve car. |
 | Check-out | Car request | Car rented | Customer, rental office | Start rental, show position and tag of car, open car. |
-| Check-in | Car returned | Rental finished | Customer, rental office | Close car, end rental, pay, issue invoice. |
+| Check-in | Car returned | Rental finished | Customer, rental office | Close car, end rental, calculate amount to pay, pay, issue invoice. |
 
 #### BPMN
 
