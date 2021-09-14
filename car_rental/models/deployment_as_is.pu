@@ -1,19 +1,20 @@
 @startuml
 
-node "Customer's device" as CustomerDevice {
-	artifact Browser as Browser1
-}
+node "Customer's device" as CustomerDevice
+node "Office PC" as OfficePC
+node "CARS Server" as CARSServer
 
-node "Office PC" as OfficePC {
-	artifact Browser as Browser2
-}
-
-node "CARS Server" as CARSServer{
-	artifact "Reservation app"
-	artifact "General app"
-}
+artifact Browser as Browser1
+artifact Browser as Browser2
+artifact "Reservation app" as ReservationApp
+artifact "General app" as GeneralApp
 
 CARSServer -- "*" CustomerDevice : Internet
 CARSServer -- "*" OfficePC : Internet
+
+CustomerDevice <.. Browser1 : <<deploy>>
+OfficePC <.. Browser2 : <<deploy>>
+ReservationApp ..> CARSServer : <<deploy>>
+GeneralApp ..> CARSServer : <<deploy>>
 
 @enduml
