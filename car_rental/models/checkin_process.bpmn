@@ -17,17 +17,14 @@
         <bpmn:flowNodeRef>Activity_10tkmca</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0vqi9kj" name="Car management employee">
-        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_14mvaxn</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1uzvjl4" name="Accounting">
         <bpmn:flowNodeRef>Event_04ig06s</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0e9aern</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="StartEvent_1" name="Car returned">
-      <bpmn:outgoing>Flow_176fcj7</bpmn:outgoing>
-    </bpmn:startEvent>
     <bpmn:task id="Activity_14mvaxn" name="Check new damage">
       <bpmn:incoming>Flow_176fcj7</bpmn:incoming>
       <bpmn:outgoing>Flow_0j8zmed</bpmn:outgoing>
@@ -66,6 +63,9 @@
     <bpmn:sequenceFlow id="Flow_1kjmm5f" sourceRef="Activity_10tkmca" targetRef="Gateway_1vuvhbt" />
     <bpmn:sequenceFlow id="Flow_1levpjm" sourceRef="Gateway_1vuvhbt" targetRef="Event_0e9aern" />
     <bpmn:sequenceFlow id="Flow_1h9sou6" sourceRef="Event_0e9aern" targetRef="Event_04ig06s" />
+    <bpmn:startEvent id="StartEvent_1" name="Car returned">
+      <bpmn:outgoing>Flow_176fcj7</bpmn:outgoing>
+    </bpmn:startEvent>
   </bpmn:process>
   <bpmn:process id="Process_0p3gc24" isExecutable="false" />
   <bpmn:process id="Process_14u77sz" isExecutable="false" />
@@ -129,12 +129,6 @@
         <di:waypoint x="938" y="140" />
         <di:waypoint x="982" y="140" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="222" y="602" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="209" y="572" width="62" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_14mvaxn_di" bpmnElement="Activity_14mvaxn">
         <dc:Bounds x="310" y="580" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -160,6 +154,12 @@
         <dc:Bounds x="902" y="122" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="890" y="98" width="59" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_039gp4v_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="602" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="209" y="572" width="62" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0e8pc8k_di" bpmnElement="Activity_10tkmca">
