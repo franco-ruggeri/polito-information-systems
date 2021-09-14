@@ -46,7 +46,8 @@ CreditCard : +Expiration date
 ' Reservation
 class Reservation
 Reservation "*" -- Customer : reserves <
-Reservation -- CarModel : reserves >
+Reservation "*" -- CarModel : reserves >
+Reservation "*" -- ParkingSite : car is in >
 Reservation : +Start date
 Reservation : +End date
 
@@ -55,7 +56,7 @@ class Rental
 class Payment
 Rental "0..1" -- Reservation : relative to >
 Rental -- Payment : has payment >
-Rental -- Car : assigned to <
+Rental "*" -- Car : assigned to <
 Rental : +ID
 Rental : +Start date
 Rental : +End date
