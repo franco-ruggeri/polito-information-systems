@@ -113,3 +113,8 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 ##### Check-in
 
 ![TODO](models/checkin_process_to_be.png)
+
+## Business rules (Lab 3 - Part 1)
+
+1. Only customers with a valid driving license can rent a car.
+2. Only cars with at least one active insurance can be rented.
