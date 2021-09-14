@@ -12,13 +12,13 @@
     <bpmn:laneSet id="LaneSet_144ju3k">
       <bpmn:lane id="Lane_084nyxv" name="Desk employee">
         <bpmn:flowNodeRef>Gateway_1howr9w</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_03za56g</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1vuvhbt</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_10tkmca</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_03za56g</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0vqi9kj" name="Car management employee">
-        <bpmn:flowNodeRef>Activity_14mvaxn</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_14mvaxn</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1uzvjl4" name="Accounting">
         <bpmn:flowNodeRef>Event_04ig06s</bpmn:flowNodeRef>
@@ -41,14 +41,6 @@
       <bpmn:outgoing>Flow_1dd6kjf</bpmn:outgoing>
       <bpmn:outgoing>Flow_1tdxrg6</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_03za56g" name="Return rest of damage deposit">
-      <bpmn:incoming>Flow_1tdxrg6</bpmn:incoming>
-      <bpmn:outgoing>Flow_05nnwmb</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:subProcess id="Activity_10tkmca" name="Manage new damage">
-      <bpmn:incoming>Flow_1dd6kjf</bpmn:incoming>
-      <bpmn:outgoing>Flow_1kjmm5f</bpmn:outgoing>
-    </bpmn:subProcess>
     <bpmn:exclusiveGateway id="Gateway_1vuvhbt">
       <bpmn:incoming>Flow_05nnwmb</bpmn:incoming>
       <bpmn:incoming>Flow_1kjmm5f</bpmn:incoming>
@@ -58,14 +50,22 @@
     <bpmn:sequenceFlow id="Flow_1tdxrg6" name="No" sourceRef="Gateway_1howr9w" targetRef="Activity_03za56g" />
     <bpmn:sequenceFlow id="Flow_05nnwmb" sourceRef="Activity_03za56g" targetRef="Gateway_1vuvhbt" />
     <bpmn:sequenceFlow id="Flow_1kjmm5f" sourceRef="Activity_10tkmca" targetRef="Gateway_1vuvhbt" />
-    <bpmn:task id="Activity_14mvaxn" name="Check new damage">
-      <bpmn:incoming>Flow_176fcj7</bpmn:incoming>
-      <bpmn:outgoing>Flow_0j8zmed</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:startEvent id="StartEvent_1" name="Car returned">
       <bpmn:outgoing>Flow_176fcj7</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_176fcj7" sourceRef="StartEvent_1" targetRef="Activity_14mvaxn" />
+    <bpmn:manualTask id="Activity_14mvaxn" name="Check new damage">
+      <bpmn:incoming>Flow_176fcj7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0j8zmed</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:subProcess id="Activity_10tkmca" name="Manage new damage">
+      <bpmn:incoming>Flow_1dd6kjf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kjmm5f</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:userTask id="Activity_03za56g" name="Return rest of damage deposit">
+      <bpmn:incoming>Flow_1tdxrg6</bpmn:incoming>
+      <bpmn:outgoing>Flow_05nnwmb</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmn:process id="Process_0p3gc24" isExecutable="false" />
   <bpmn:process id="Process_14u77sz" isExecutable="false" />
@@ -147,20 +147,20 @@
           <dc:Bounds x="544" y="330" width="71" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_03za56g_di" bpmnElement="Activity_03za56g">
-        <dc:Bounds x="630" y="230" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1vuvhbt_di" bpmnElement="Gateway_1vuvhbt" isMarkerVisible="true">
         <dc:Bounds x="775" y="315" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_14mvaxn_di" bpmnElement="Activity_14mvaxn">
-        <dc:Bounds x="310" y="510" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_039gp4v_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="222" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="209" y="513" width="62" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xkxv0y_di" bpmnElement="Activity_14mvaxn">
+        <dc:Bounds x="310" y="510" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1dv41rv_di" bpmnElement="Activity_03za56g">
+        <dc:Bounds x="630" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0e8pc8k_di" bpmnElement="Activity_10tkmca">
         <dc:Bounds x="560" y="390" width="100" height="80" />

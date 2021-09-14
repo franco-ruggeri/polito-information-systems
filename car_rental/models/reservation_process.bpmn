@@ -31,8 +31,8 @@
         <bpmn:flowNodeRef>Gateway_1wwl6h5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1f7rdg1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0g4b32m</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0mvzg6a</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0i0b1ge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0mvzg6a</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="Flow_0e0rn9e" sourceRef="StartEvent_1" targetRef="Activity_1b5g7fa" />
@@ -114,13 +114,13 @@
       <bpmn:incoming>Flow_0tjqo8a</bpmn:incoming>
       <bpmn:outgoing>Flow_13xrs7f</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:task id="Activity_0mvzg6a" name="Check credit card">
-      <bpmn:incoming>Flow_1o2eypu</bpmn:incoming>
-      <bpmn:outgoing>Flow_0tv60nz</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:serviceTask id="Activity_0i0b1ge" name="Check car availability">
       <bpmn:incoming>Flow_16hwhnv</bpmn:incoming>
       <bpmn:outgoing>Flow_125kwro</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0mvzg6a" name="Check credit card">
+      <bpmn:incoming>Flow_1o2eypu</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tv60nz</bpmn:outgoing>
     </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:process id="Process_14v5dq8" isExecutable="false" />
@@ -281,11 +281,11 @@
       <bpmndi:BPMNShape id="Gateway_0g4b32m_di" bpmnElement="Gateway_0g4b32m">
         <dc:Bounds x="935" y="335" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0mvzg6a_di" bpmnElement="Activity_0mvzg6a">
-        <dc:Bounds x="600" y="440" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1927os1_di" bpmnElement="Activity_0i0b1ge">
         <dc:Bounds x="600" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0c8jy6v_di" bpmnElement="Activity_0mvzg6a">
+        <dc:Bounds x="600" y="440" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1c8emr4_di" bpmnElement="Participant_1c8emr4" isHorizontal="true">
         <dc:Bounds x="121" y="620" width="1239" height="100" />

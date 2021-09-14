@@ -20,10 +20,7 @@
     <bpmn:laneSet id="LaneSet_0fs99en">
       <bpmn:lane id="Lane_1hs7u0f" name="Desk employee">
         <bpmn:flowNodeRef>Gateway_12v8is5</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1gsw7ni</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_15ez63d</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_01plovl</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_08llclj</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0yn635p</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1bny4d5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0eu9j5x</bpmn:flowNodeRef>
@@ -32,10 +29,13 @@
         <bpmn:flowNodeRef>Gateway_0z9qc4u</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1ez2kcp</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0dyu08p</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1r8qx2v</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_05pp1y5</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_087r0y1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0qkcvmc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1gsw7ni</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_15ez63d</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_08llclj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1r8qx2v</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_087r0y1</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0b2gbmq" name="Car management&#10;employee">
         <bpmn:flowNodeRef>Activity_0l6g31w</bpmn:flowNodeRef>
@@ -43,9 +43,9 @@
         <bpmn:flowNodeRef>Activity_0zl5ix3</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1u7a2z5" name="Accounting">
-        <bpmn:flowNodeRef>Activity_0oq11qt</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1oaizb0</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_18lg22w</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0oq11qt</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="Flow_1yjp35c" sourceRef="Gateway_05pp1y5" targetRef="Activity_0oq11qt" />
@@ -55,29 +55,12 @@
       <bpmn:outgoing>Flow_00t9oya</bpmn:outgoing>
       <bpmn:outgoing>Flow_0x3b41l</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1gsw7ni" name="Check availability">
-      <bpmn:incoming>Flow_00t9oya</bpmn:incoming>
-      <bpmn:outgoing>Flow_0qi0jd1</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_15ez63d" name="Retrieve reservation">
-      <bpmn:incoming>Flow_0x3b41l</bpmn:incoming>
-      <bpmn:outgoing>Flow_1xxrnes</bpmn:outgoing>
-      <bpmn:property id="Property_0p0u14k" name="__targetRef_placeholder" />
-      <bpmn:dataInputAssociation id="DataInputAssociation_1d5ud1r">
-        <bpmn:sourceRef>DataStoreReference_1fpla6j</bpmn:sourceRef>
-        <bpmn:targetRef>Property_0p0u14k</bpmn:targetRef>
-      </bpmn:dataInputAssociation>
-    </bpmn:task>
     <bpmn:dataStoreReference id="DataStoreReference_1fpla6j" name="Reservation DB" />
     <bpmn:exclusiveGateway id="Gateway_01plovl">
       <bpmn:incoming>Flow_1xxrnes</bpmn:incoming>
       <bpmn:incoming>Flow_16kfxfw</bpmn:incoming>
       <bpmn:outgoing>Flow_0im7g48</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_08llclj" name="Prepare contract">
-      <bpmn:incoming>Flow_0im7g48</bpmn:incoming>
-      <bpmn:outgoing>Flow_1af1efo</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:exclusiveGateway id="Gateway_0yn635p" name="Available?">
       <bpmn:incoming>Flow_0qi0jd1</bpmn:incoming>
       <bpmn:outgoing>Flow_1ec0oiy</bpmn:outgoing>
@@ -133,39 +116,15 @@
     <bpmn:sequenceFlow id="Flow_0bpx7v9" sourceRef="Gateway_0z9qc4u" targetRef="Event_1ez2kcp" />
     <bpmn:sequenceFlow id="Flow_080unvy" sourceRef="Gateway_0z9qc4u" targetRef="Event_0dyu08p" />
     <bpmn:sequenceFlow id="Flow_0oxgbop" sourceRef="Event_0dyu08p" targetRef="Gateway_05pp1y5" />
-    <bpmn:task id="Activity_1r8qx2v" name="Get payment">
-      <bpmn:incoming>Flow_1af1efo</bpmn:incoming>
-      <bpmn:outgoing>Flow_126im91</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_126im91" sourceRef="Activity_1r8qx2v" targetRef="Gateway_0z9qc4u" />
     <bpmn:parallelGateway id="Gateway_05pp1y5">
       <bpmn:incoming>Flow_0oxgbop</bpmn:incoming>
       <bpmn:outgoing>Flow_1yjp35c</bpmn:outgoing>
       <bpmn:outgoing>Flow_0dv3fh0</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:task id="Activity_0oq11qt" name="Register payment">
-      <bpmn:incoming>Flow_1yjp35c</bpmn:incoming>
-      <bpmn:outgoing>Flow_111zya2</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0dv3fh0" sourceRef="Gateway_05pp1y5" targetRef="Activity_087r0y1" />
-    <bpmn:task id="Activity_087r0y1" name="Sign contract">
-      <bpmn:incoming>Flow_0dv3fh0</bpmn:incoming>
-      <bpmn:outgoing>Flow_0g8duwg</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0g8duwg" sourceRef="Activity_087r0y1" targetRef="Activity_0l6g31w" />
-    <bpmn:task id="Activity_0l6g31w" name="Check and list damage">
-      <bpmn:incoming>Flow_0g8duwg</bpmn:incoming>
-      <bpmn:outgoing>Flow_1l5ihev</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1l5ihev" sourceRef="Activity_0l6g31w" targetRef="Activity_0btklkv" />
-    <bpmn:task id="Activity_0btklkv" name="Sign damage">
-      <bpmn:incoming>Flow_1l5ihev</bpmn:incoming>
-      <bpmn:outgoing>Flow_0h5p6q6</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_0zl5ix3" name="Hand keys over">
-      <bpmn:incoming>Flow_0h5p6q6</bpmn:incoming>
-      <bpmn:outgoing>Flow_0ar92xk</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0h5p6q6" sourceRef="Activity_0btklkv" targetRef="Activity_0zl5ix3" />
     <bpmn:sequenceFlow id="Flow_01g68ix" sourceRef="Gateway_1oaizb0" targetRef="Event_18lg22w" />
     <bpmn:sequenceFlow id="Flow_0ar92xk" sourceRef="Activity_0zl5ix3" targetRef="Gateway_1oaizb0" />
@@ -182,6 +141,47 @@
       <bpmn:incoming>Flow_17yqaed</bpmn:incoming>
       <bpmn:incoming>Flow_1v0i3qs</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:userTask id="Activity_1gsw7ni" name="Check availability">
+      <bpmn:incoming>Flow_00t9oya</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qi0jd1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_15ez63d" name="Retrieve reservation">
+      <bpmn:incoming>Flow_0x3b41l</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xxrnes</bpmn:outgoing>
+      <bpmn:property id="Property_0ugfy9m" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1d5ud1r">
+        <bpmn:sourceRef>DataStoreReference_1fpla6j</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0ugfy9m</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_08llclj" name="Prepare contract">
+      <bpmn:incoming>Flow_0im7g48</bpmn:incoming>
+      <bpmn:outgoing>Flow_1af1efo</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1r8qx2v" name="Get payment">
+      <bpmn:incoming>Flow_1af1efo</bpmn:incoming>
+      <bpmn:outgoing>Flow_126im91</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:manualTask id="Activity_087r0y1" name="Sign contract">
+      <bpmn:incoming>Flow_0dv3fh0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0g8duwg</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:manualTask id="Activity_0l6g31w" name="Check and list damage">
+      <bpmn:incoming>Flow_0g8duwg</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l5ihev</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:manualTask id="Activity_0btklkv" name="Sign damage">
+      <bpmn:incoming>Flow_1l5ihev</bpmn:incoming>
+      <bpmn:outgoing>Flow_0h5p6q6</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:manualTask id="Activity_0zl5ix3" name="Hand keys over">
+      <bpmn:incoming>Flow_0h5p6q6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ar92xk</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:userTask id="Activity_0oq11qt" name="Register payment">
+      <bpmn:incoming>Flow_1yjp35c</bpmn:incoming>
+      <bpmn:outgoing>Flow_111zya2</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmn:process id="Process_1pgb0bs" isExecutable="true" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -332,12 +332,6 @@
           <dc:Bounds x="395" y="583" width="54" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1gsw7ni_di" bpmnElement="Activity_1gsw7ni">
-        <dc:Bounds x="420" y="430" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_15ez63d_di" bpmnElement="Activity_15ez63d">
-        <dc:Bounds x="420" y="680" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_1fpla6j_di" bpmnElement="DataStoreReference_1fpla6j">
         <dc:Bounds x="445" y="805" width="50" height="50" />
         <bpmndi:BPMNLabel>
@@ -346,9 +340,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_01plovl_di" bpmnElement="Gateway_01plovl" isMarkerVisible="true">
         <dc:Bounds x="825" y="695" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_08llclj_di" bpmnElement="Activity_08llclj">
-        <dc:Bounds x="920" y="680" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0yn635p_di" bpmnElement="Gateway_0yn635p" isMarkerVisible="true">
         <dc:Bounds x="555" y="445" width="50" height="50" />
@@ -392,26 +383,8 @@
           <dc:Bounds x="1328" y="732" width="45" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1r8qx2v_di" bpmnElement="Activity_1r8qx2v">
-        <dc:Bounds x="1070" y="680" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1u0s5jb_di" bpmnElement="Gateway_05pp1y5">
         <dc:Bounds x="1445" y="755" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0oq11qt_di" bpmnElement="Activity_0oq11qt">
-        <dc:Bounds x="1420" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_087r0y1_di" bpmnElement="Activity_087r0y1">
-        <dc:Bounds x="1530" y="740" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0l6g31w_di" bpmnElement="Activity_0l6g31w">
-        <dc:Bounds x="1700" y="220" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0btklkv_di" bpmnElement="Activity_0btklkv">
-        <dc:Bounds x="1840" y="220" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0zl5ix3_di" bpmnElement="Activity_0zl5ix3">
-        <dc:Bounds x="1980" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_020byk6_di" bpmnElement="Gateway_1oaizb0">
         <dc:Bounds x="2105" y="95" width="50" height="50" />
@@ -427,6 +400,33 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1364" y="348" width="72" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1bimmh1_di" bpmnElement="Activity_1gsw7ni">
+        <dc:Bounds x="420" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ow7yg5_di" bpmnElement="Activity_15ez63d">
+        <dc:Bounds x="420" y="680" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ss9cgq_di" bpmnElement="Activity_08llclj">
+        <dc:Bounds x="920" y="680" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0r79aec_di" bpmnElement="Activity_1r8qx2v">
+        <dc:Bounds x="1070" y="680" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yk2czq_di" bpmnElement="Activity_087r0y1">
+        <dc:Bounds x="1530" y="740" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02lj9wu_di" bpmnElement="Activity_0l6g31w">
+        <dc:Bounds x="1700" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1m33n2w_di" bpmnElement="Activity_0btklkv">
+        <dc:Bounds x="1840" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0z2s50i_di" bpmnElement="Activity_0zl5ix3">
+        <dc:Bounds x="1980" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vvrjy0_di" bpmnElement="Activity_0oq11qt">
+        <dc:Bounds x="1420" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1x72c0k_di" bpmnElement="Participant_1x72c0k" isHorizontal="true">
         <dc:Bounds x="129" y="1080" width="2151" height="130" />
