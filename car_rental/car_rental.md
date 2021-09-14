@@ -33,12 +33,11 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 ### AS IS
 
 - CARS (Organization)
-  - Sales & Marketing (Organizational Unit)
-    - Reservation office (Organizational Unit)
-    - Call center (Organizational Unit)
-    - Parking site office (Organizational Unit)
-      - Desk employee (Role)
-      - Car management employee (Role)
+  - Reservation office (Organizational Unit)
+  - Call center (Organizational Unit)
+  - Parking site office (Organizational Unit)
+    - Desk employee (Role)
+    - Car management employee (Role)
   - Accounting (Organization Unit)
   - IT area (Organizational Unit)
 - Customer (Role)
@@ -47,9 +46,8 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 ### TO BE
 
 - CARS (Organization)
-  - Sales & Marketing (Organizational Unit)
-    - Reservation office (Organizational Unit)
-    - Registration office (Organizational Unit)
+  - Registration office (Organizational Unit)
+  - Rental office (Organizational Unit)
   - Accounting (Organization Unit)
   - IT area (Organizational Unit)
 - Customer (Role)
@@ -63,9 +61,9 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Reservation | Reservation request | Reservation | Customer, Reservation, Call center |  Check credit card, driving license and car availability, reserve car. |
-| Check-out | Car request | Contract signed, keys handed over | Customer, Desk employee, Accounting, Car management employee | Check credit card, driving license and car availability (if not reserved), pay (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
-| Check-in | Car returned | Keys returned, damage deposit returned, invoice issued | Customer, Car management employee, Desk employee | Check new damage, possibly return damage deposit, issue invoice. |
+| Reservation | Reservation request | Reservation | Customer, reservation office, call center |  Check credit card, driving license and car availability, reserve car. |
+| Check-out | Car request | Car rented | Customer, desk employee, accounting, car management employee | Check credit card, driving license and car availability (if not reserved), pay (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
+| Check-in | Car returned | rental finished | Customer, car management employee, desk employee | Check new damage, possibly return damage deposit, issue invoice. |
 
 #### BPMN
 
@@ -87,10 +85,10 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Sign-up | Account request | Account | Customer, Registration office |  Check ID card, driving license and credit card, create account. |
-| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) |  Check car availability, reserve car. |
-| Check-out | Car request | Car rented | Customer, Desk employee, Accounting, Car management employee | Start rental, show position and tag of car, open car. |
-| Check-in | Car rented | Car returned | Customer, Car management employee | Close car, end rental, pay, issue invoice. |
+| Sign-up | Account request | Account | Customer, rental office |  Check ID card, driving license and credit card, create account. |
+| Reservation | Reservation request | Reservation | Customer, rental office |  Check car availability, reserve car. |
+| Check-out | Car request | Car rented | Customer, rental office | Start rental, show position and tag of car, open car. |
+| Check-in | Car returned | Rental finished | Customer, rental office | Close car, end rental, pay, issue invoice. |
 
 #### BPMN
 
