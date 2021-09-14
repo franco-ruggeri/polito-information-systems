@@ -10,7 +10,7 @@
   </bpmn:collaboration>
   <bpmn:process id="Process_1tlsdq7" isExecutable="true">
     <bpmn:laneSet id="LaneSet_1pvhieb">
-      <bpmn:lane id="Lane_1mur41r" name="Rental office">
+      <bpmn:lane id="Lane_1mur41r" name="Reservation office">
         <bpmn:flowNodeRef>Event_1qkqc9x</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0t8j762</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0hjn9xv</bpmn:flowNodeRef>
@@ -52,21 +52,21 @@
       <bpmndi:BPMNShape id="Lane_1mur41r_di" bpmnElement="Lane_1mur41r" isHorizontal="true">
         <dc:Bounds x="159" y="80" width="591" height="122" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_0k2xyzr_di" bpmnElement="Flow_0k2xyzr">
-        <di:waypoint x="248" y="140" />
-        <di:waypoint x="290" y="140" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1egw7ad_di" bpmnElement="Flow_1egw7ad">
-        <di:waypoint x="530" y="140" />
-        <di:waypoint x="560" y="140" />
+      <bpmndi:BPMNEdge id="Flow_0jgj23z_di" bpmnElement="Flow_0jgj23z">
+        <di:waypoint x="390" y="140" />
+        <di:waypoint x="430" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0w4jeyj_di" bpmnElement="Flow_0w4jeyj">
         <di:waypoint x="660" y="140" />
         <di:waypoint x="692" y="140" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0jgj23z_di" bpmnElement="Flow_0jgj23z">
-        <di:waypoint x="390" y="140" />
-        <di:waypoint x="430" y="140" />
+      <bpmndi:BPMNEdge id="Flow_1egw7ad_di" bpmnElement="Flow_1egw7ad">
+        <di:waypoint x="530" y="140" />
+        <di:waypoint x="560" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k2xyzr_di" bpmnElement="Flow_0k2xyzr">
+        <di:waypoint x="248" y="140" />
+        <di:waypoint x="290" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_02yw6x4_di" bpmnElement="Event_1qkqc9x">
         <dc:Bounds x="692" y="122" width="36" height="36" />

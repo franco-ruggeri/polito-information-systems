@@ -57,7 +57,7 @@ Assume one or more PCs per parking site office, one central server, one applicat
 
 - CARS (Organization)
   - Registration office (Organizational Unit)
-  - Rental office (Organizational Unit)
+  - Reservation office (Organizational Unit)
   - Accounting (Organization Unit)
   - IT area (Organizational Unit)
 - Customer (Role)
@@ -95,10 +95,10 @@ Assume one or more PCs per parking site office, one central server, one applicat
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Sign-up | Account request | Account | Customer, rental office |  Check ID card, driving license and credit card, create account. |
-| Reservation | Reservation request | Reservation | Customer, rental office |  Check car availability, reserve car. |
-| Check-out | Car request | Car rented | Customer, rental office | Start rental, show position and tag of car, open car. |
-| Check-in | Car returned | Rental finished | Customer, rental office | Close car, end rental, calculate amount to pay, pay, issue invoice. |
+| Sign-up | Account request | Account | Customer, reservation office |  Check ID card, driving license and credit card, create account. |
+| Reservation | Reservation request | Reservation | Customer, reservation office |  Check car availability, reserve car. |
+| Check-out | Car request | Car rented | Customer, reservation office | Start rental, show position and tag of car, open car. |
+| Check-in | Car returned | Rental finished | Customer, reservation office | Close car, end rental, calculate amount to pay, pay, issue invoice. |
 
 #### BPMN
 

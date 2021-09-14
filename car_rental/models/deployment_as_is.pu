@@ -13,7 +13,7 @@ node "CARS Server" as CARSServer{
 	artifact "General app"
 }
 
-CARSServer -- CustomerDevice : Internet
-CARSServer -- OfficePC : Internet
+CARSServer -- "*" CustomerDevice : Internet
+CARSServer -- "*" OfficePC : Internet
 
 @enduml
