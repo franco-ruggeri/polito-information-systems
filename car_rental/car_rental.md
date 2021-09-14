@@ -26,7 +26,13 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 ## Data model (Lab 1)
 
-![TODO](models/data.svg)
+### AS IS
+
+![TODO](models/data_as_is.svg)
+
+### TO BE
+
+![TODO](models/data_to_be.svg)
 
 ## Organizational model (Lab 2 - Part 1)
 

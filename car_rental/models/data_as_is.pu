@@ -28,7 +28,7 @@ Employee : +Surname
 ' Insurances
 class Insurer
 class Insurance
-Insurance "*" -- Insurer : provides >
+Insurance "*" -- Insurer : provides <
 Insurance "*" -- Car : covered by <
 Insurer : +ID
 Insurer : +Name
@@ -40,11 +40,13 @@ class "Driver license" as DriverLicense
 class "Credit card" as CreditCard
 Customer -- DriverLicense
 Customer -- CreditCard
+Customer : +SSN
 Customer : +Name
 Customer : +Surname
-Customer : +ID document
 DriverLicense : +ID
 DriverLicense : +Expiration date
+CreditCard : +Number
+CreditCard : +Expiration date
 
 ' Reservation
 class Reservation
@@ -60,11 +62,10 @@ Contract "*" -- Customer : signs <
 Contract "0..1" -- "0..1" Reservation : relative to >
 Contract -- Payment : has payment >
 Contract -- Car : assigned to <
+Contract : +ID
 Contract : +Start date
 Contract : +End date
 Contract : +Customer's signature
-CreditCard : +Number
-CreditCard : +Expiration date
 Payment : +Damage deposit
 Payment : +Partial fee
 Payment : +Total fee

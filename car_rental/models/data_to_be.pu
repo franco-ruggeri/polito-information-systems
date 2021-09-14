@@ -1,0 +1,69 @@
+@startuml
+
+' CARS company
+class CARS
+class "Parking site" as ParkingSite
+class Address
+class Car
+class "Car Model" as CarModel
+CARS o-- "*" ParkingSite
+CARS -- "*" CarModel : offers >
+ParkingSite -- "*" Car : is parked in <
+ParkingSite -- Address : located at >
+Car "*" -- CarModel : describes <
+Car : +Tag
+CarModel : +ID
+CarModel : +Type
+CarModel : +Number of seats
+ParkingSite : +ID
+Address : +City
+Address : +Type
+Address : +Name
+
+' Insurances
+class Insurer
+class Insurance
+Insurance "*" -- Insurer : provides <
+Insurance "*" -- Car : covered by <
+Insurer : +ID
+Insurer : +Name
+Insurance : +Type
+
+' Customer
+class Customer
+class "Driver license" as DriverLicense
+class "Credit card" as CreditCard
+Customer -- DriverLicense
+Customer -- CreditCard
+Customer : +SSN
+Customer : +Name
+Customer : +Surname
+DriverLicense : +ID
+DriverLicense : +Expiration date
+CreditCard : +Number
+CreditCard : +Expiration date
+
+' Reservation
+class Reservation
+Reservation "*" -- Customer : reserves <
+Reservation -- CarModel : reserves >
+Reservation : +Start date
+Reservation : +End date
+
+' Check-out - Part 1
+class Rental
+class Payment
+Rental "0..1" -- Reservation : relative to >
+Rental -- Payment : has payment >
+Rental -- Car : assigned to <
+Rental : +ID
+Rental : +Start date
+Rental : +End date
+Payment : +Amount
+
+' Invoice
+class Invoice
+Invoice -- Payment : related to >
+Invoice : +ID
+
+@enduml
