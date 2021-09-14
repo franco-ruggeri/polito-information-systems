@@ -46,8 +46,7 @@ CreditCard : +Expiration date
 ' Reservation
 class Reservation
 Reservation "*" -- Customer : reserves <
-Reservation "*" -- CarModel : reserves >
-Reservation "*" -- ParkingSite : car is in >
+Reservation "*" -- Car : reserves >
 Reservation : +Start date
 Reservation : +End date
 
