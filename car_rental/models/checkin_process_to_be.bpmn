@@ -16,8 +16,8 @@
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0ebqrnq</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0ex8igy</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1jt7x23</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_02m3edp</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1jt7x23</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0n1xr7u" name="Accounting">
         <bpmn:flowNodeRef>Event_0zkwkjh</bpmn:flowNodeRef>
@@ -39,10 +39,6 @@
     <bpmn:sequenceFlow id="Flow_1do0ku0" sourceRef="StartEvent_1" targetRef="Activity_0ebqrnq" />
     <bpmn:sequenceFlow id="Flow_119tzl1" sourceRef="Activity_0ebqrnq" targetRef="Activity_0ex8igy" />
     <bpmn:sequenceFlow id="Flow_0fop52m" sourceRef="Activity_0ex8igy" targetRef="Activity_1jt7x23" />
-    <bpmn:task id="Activity_1jt7x23" name="Calculate amount to pay">
-      <bpmn:incoming>Flow_0fop52m</bpmn:incoming>
-      <bpmn:outgoing>Flow_16qc0kp</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_16qc0kp" sourceRef="Activity_1jt7x23" targetRef="Activity_02m3edp" />
     <bpmn:endEvent id="Event_0zkwkjh" name="Rental finished">
       <bpmn:incoming>Flow_1gwgicb</bpmn:incoming>
@@ -63,6 +59,10 @@
     <bpmn:sequenceFlow id="Flow_1abei8r" sourceRef="Activity_02m3edp" targetRef="Activity_0mp3v95" />
     <bpmn:sequenceFlow id="Flow_190f7f6" sourceRef="Activity_0mp3v95" targetRef="Activity_07e1ru4" />
     <bpmn:sequenceFlow id="Flow_1gwgicb" sourceRef="Activity_07e1ru4" targetRef="Event_0zkwkjh" />
+    <bpmn:serviceTask id="Activity_1jt7x23" name="Calculate amount to pay">
+      <bpmn:incoming>Flow_0fop52m</bpmn:incoming>
+      <bpmn:outgoing>Flow_16qc0kp</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:process id="Process_1bgrvs4" isExecutable="false" />
   <bpmn:process id="Process_1cbyli6" isExecutable="false" />
@@ -118,9 +118,6 @@
       <bpmndi:BPMNShape id="Activity_1jtbnib_di" bpmnElement="Activity_0ex8igy">
         <dc:Bounds x="450" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1jt7x23_di" bpmnElement="Activity_1jt7x23">
-        <dc:Bounds x="590" y="220" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0glit50_di" bpmnElement="Event_0zkwkjh">
         <dc:Bounds x="1112" y="122" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -135,6 +132,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_057mx5i_di" bpmnElement="Activity_07e1ru4">
         <dc:Bounds x="970" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xj2ysn_di" bpmnElement="Activity_1jt7x23">
+        <dc:Bounds x="590" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1jsm8o4_di" bpmnElement="Participant_1jsm8o4" isHorizontal="true">
         <dc:Bounds x="129" y="350" width="1049" height="80" />

@@ -24,7 +24,6 @@
         <bpmn:flowNodeRef>Activity_08llclj</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1r8qx2v</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0k9gkbw</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_03ji8a6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_10f028l</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1a9c2yf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_05pp1y5</bpmn:flowNodeRef>
@@ -32,6 +31,7 @@
         <bpmn:flowNodeRef>Activity_087r0y1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1tj4bhc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0so1a55</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_03ji8a6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0ylihqu</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0b2gbmq" name="Car management&#10;employee">
@@ -85,10 +85,6 @@
       <bpmn:outgoing>Flow_1dpfg4n</bpmn:outgoing>
       <bpmn:outgoing>Flow_0deoa0q</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:userTask id="Activity_03ji8a6" name="Check driving license">
-      <bpmn:incoming>Flow_0deoa0q</bpmn:incoming>
-      <bpmn:outgoing>Flow_185ubdi</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:parallelGateway id="Gateway_10f028l">
       <bpmn:incoming>Flow_185ubdi</bpmn:incoming>
       <bpmn:incoming>Flow_0lt31i7</bpmn:incoming>
@@ -171,10 +167,14 @@
     <bpmn:sequenceFlow id="Flow_1536h42" name="Yes" sourceRef="Gateway_0so1a55" targetRef="Activity_087r0y1" />
     <bpmn:sequenceFlow id="Flow_0rotmh2" name="No" sourceRef="Gateway_0so1a55" targetRef="Gateway_1tj4bhc" />
     <bpmn:sequenceFlow id="Flow_1n84xhw" sourceRef="Activity_0ylihqu" targetRef="Gateway_0so1a55" />
-    <bpmn:task id="Activity_0ylihqu" name="Wait payment result">
+    <bpmn:userTask id="Activity_03ji8a6" name="Check driving license">
+      <bpmn:incoming>Flow_0deoa0q</bpmn:incoming>
+      <bpmn:outgoing>Flow_185ubdi</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0ylihqu" name="Wait payment result">
       <bpmn:incoming>Flow_1tqs58j</bpmn:incoming>
       <bpmn:outgoing>Flow_1n84xhw</bpmn:outgoing>
-    </bpmn:task>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmn:process id="Process_1pgb0bs" isExecutable="true" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -253,12 +253,12 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0deoa0q_di" bpmnElement="Flow_0deoa0q">
         <di:waypoint x="460" y="435" />
-        <di:waypoint x="460" y="390" />
-        <di:waypoint x="530" y="390" />
+        <di:waypoint x="460" y="400" />
+        <di:waypoint x="530" y="400" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_185ubdi_di" bpmnElement="Flow_185ubdi">
-        <di:waypoint x="630" y="390" />
-        <di:waypoint x="700" y="390" />
+        <di:waypoint x="630" y="400" />
+        <di:waypoint x="700" y="400" />
         <di:waypoint x="700" y="435" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1x7qr1j_di" bpmnElement="Flow_1x7qr1j">
@@ -354,9 +354,6 @@
       <bpmndi:BPMNShape id="Gateway_084x5yn_di" bpmnElement="Gateway_0k9gkbw">
         <dc:Bounds x="435" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_08knq81_di" bpmnElement="Activity_03ji8a6">
-        <dc:Bounds x="530" y="350" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0w6cq68_di" bpmnElement="Gateway_10f028l">
         <dc:Bounds x="675" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
@@ -414,7 +411,10 @@
           <dc:Bounds x="1425" y="605" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0ylihqu_di" bpmnElement="Activity_0ylihqu">
+      <bpmndi:BPMNShape id="Activity_08knq81_di" bpmnElement="Activity_03ji8a6">
+        <dc:Bounds x="530" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lsoy9z_di" bpmnElement="Activity_0ylihqu">
         <dc:Bounds x="1280" y="530" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1x72c0k_di" bpmnElement="Participant_1x72c0k" isHorizontal="true">

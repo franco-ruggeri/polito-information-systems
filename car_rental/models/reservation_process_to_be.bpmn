@@ -13,8 +13,8 @@
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0wslekz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1m02snn</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1tv6or5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0y77t54</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1tv6or5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0oqogea</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
@@ -23,31 +23,31 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_0cqr1rj" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_01wv65c" sourceRef="StartEvent_1" targetRef="Activity_0wslekz" />
-    <bpmn:serviceTask id="Activity_0wslekz" name="Check car availability">
-      <bpmn:incoming>Flow_01wv65c</bpmn:incoming>
-      <bpmn:outgoing>Flow_0k2tgwr</bpmn:outgoing>
-    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0pbed5m" sourceRef="Activity_1tv6or5" targetRef="Event_0y77t54" />
+    <bpmn:sequenceFlow id="Flow_0oahr6k" sourceRef="Gateway_1m02snn" targetRef="Event_0oqogea" />
+    <bpmn:sequenceFlow id="Flow_0h07t3j" name="Yes" sourceRef="Gateway_1m02snn" targetRef="Activity_1tv6or5" />
     <bpmn:sequenceFlow id="Flow_0k2tgwr" sourceRef="Activity_0wslekz" targetRef="Gateway_1m02snn" />
+    <bpmn:endEvent id="Event_0oqogea" name="Reservation rejected">
+      <bpmn:incoming>Flow_0oahr6k</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0oj0763" />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_1tv6or5" name="Reserve car">
+      <bpmn:incoming>Flow_0h07t3j</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pbed5m</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0y77t54" name="Reservation confirmed">
+      <bpmn:incoming>Flow_0pbed5m</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0zfwifu" />
+    </bpmn:endEvent>
     <bpmn:exclusiveGateway id="Gateway_1m02snn" name="Available?">
       <bpmn:incoming>Flow_0k2tgwr</bpmn:incoming>
       <bpmn:outgoing>Flow_0h07t3j</bpmn:outgoing>
       <bpmn:outgoing>Flow_0oahr6k</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_0h07t3j" name="Yes" sourceRef="Gateway_1m02snn" targetRef="Activity_1tv6or5" />
-    <bpmn:sequenceFlow id="Flow_0pbed5m" sourceRef="Activity_1tv6or5" targetRef="Event_0y77t54" />
-    <bpmn:serviceTask id="Activity_1tv6or5" name="Reserve car">
-      <bpmn:incoming>Flow_0h07t3j</bpmn:incoming>
-      <bpmn:outgoing>Flow_0pbed5m</bpmn:outgoing>
+    <bpmn:serviceTask id="Activity_0wslekz" name="Check car availability">
+      <bpmn:incoming>Flow_01wv65c</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k2tgwr</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0oahr6k" sourceRef="Gateway_1m02snn" targetRef="Event_0oqogea" />
-    <bpmn:endEvent id="Event_0y77t54" name="Reservation confirmed">
-      <bpmn:incoming>Flow_0pbed5m</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0zfwifu" />
-    </bpmn:endEvent>
-    <bpmn:endEvent id="Event_0oqogea" name="Reservation rejected">
-      <bpmn:incoming>Flow_0oahr6k</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0oj0763" />
-    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:process id="Process_0045u3d" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
