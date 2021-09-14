@@ -14,7 +14,9 @@ node "Office PC" as OfficePC {
 }
 
 node Car {
-	artifact "Remote control firmware"
+	node "Remote control device" {
+		artifact "Remote control firmware"
+	}
 }
 
 node "CARS Server" as CARSServer{
