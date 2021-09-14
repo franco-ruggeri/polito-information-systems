@@ -26,20 +26,32 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 ## Data model (Lab 1)
 
-![](models/data.svg)
+![TODO](models/data.svg)
 
 ## Organizational model (Lab 2 - Part 1)
 
+### AS IS
+
 - CARS (Organization)
   - Sales & Marketing (Organizational Unit)
-    - Reservation (Organizational Unit)
+    - Reservation office (Organizational Unit)
     - Call center (Organizational Unit)
     - Parking site office (Organizational Unit)
       - Desk employee (Role)
       - Car management employee (Role)
   - Accounting (Organization Unit)
   - IT area (Organizational Unit)
-    - Web site maintainer (Role)
+- Customer (Role)
+- Credit card system (Organization)
+
+### TO BE
+
+- CARS (Organization)
+  - Sales & Marketing (Organizational Unit)
+    - Reservation office (Organizational Unit)
+    - Registration office (Organizational Unit)
+  - Accounting (Organization Unit)
+  - IT area (Organizational Unit)
 - Customer (Role)
 - Credit card system (Organization)
 
@@ -51,23 +63,23 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Reservation | Reservation request | Reservation | Customer, Reservation, Call center | Reserve car via website or call center, check credit card for guarantee. |
-| Check-out | Car request | Contract signed, keys handed over | Customer, Desk employee, Accounting, Car management employee | Pay for rental (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
+| Reservation | Reservation request | Reservation | Customer, Reservation, Call center |  Check credit card, driving license and car availability, reserve car. |
+| Check-out | Car request | Contract signed, keys handed over | Customer, Desk employee, Accounting, Car management employee | Check credit card, driving license and car availability (if not reserved), pay (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
 | Check-in | Car returned | Keys returned, damage deposit returned, invoice issued | Customer, Car management employee, Desk employee | Check new damage, possibly return damage deposit, issue invoice. |
 
 #### BPMN
 
 ##### Reservation
 
-![](models/reservation_process_as_is.png)
+![TODO](models/reservation_process_as_is.png)
 
 ##### Check-out
 
-![](models/checkout_process_as_is.png)
+![TODO](models/checkout_process_as_is.png)
 
 ##### Check-in
 
-![](models/checkin_process_as_is.png)
+![TODO](models/checkin_process_as_is.png)
 
 ### TO BE
 
@@ -75,21 +87,25 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) |  |
-| Check-out | Car request | Car rented | Customer, Desk employee, Accounting, Car management employee |  |
-| Check-in | Car rented | Car returned | Customer, Car management employee |  |
-| Invoice issue | Car returned | Invoice sent | Accounting |  |
+| Sign-up | Account request | Account | Customer, Registration office |  Check ID card, driving license and credit card, create account. |
+| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) |  Check car availability, reserve car. |
+| Check-out | Car request | Car rented | Customer, Desk employee, Accounting, Car management employee | Start rental, show position and tag of car, open car. |
+| Check-in | Car rented | Car returned | Customer, Car management employee | Close car, end rental, pay, issue invoice. |
 
 #### BPMN
 
+##### Sign-up
+
+![TODO](models/signup_process_to_be.png)
+
 ##### Reservation
 
-![](models/reservation_process_to_be.png)
+![TODO](models/reservation_process_to_be.png)
 
 ##### Check-out
 
-![](models/checkout_process_to_be.png)
+![TODO](models/checkout_process_to_be.png)
 
 ##### Check-in
 
-![](models/checkin_process_to_be.png)
+![TODO](models/checkin_process_to_be.png)
