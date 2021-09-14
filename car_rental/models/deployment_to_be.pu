@@ -1,0 +1,30 @@
+@startuml
+
+node "Customer's PC" as CustomerPC {
+	artifact Browser as Browser1
+}
+
+node "Customer's smartphone" as CustomerSmartphone {
+	artifact Browser as Browser2
+	artifact "CARS app"
+}
+
+node "Office PC" as OfficePC {
+	artifact Browser as Browser3
+}
+
+node Car {
+	artifact "Remote control firmware"
+}
+
+node "CARS Server" as CARSServer{
+	artifact "Reservation app"
+	artifact "General app"
+}
+
+CARSServer -- CustomerPC : Internet
+CARSServer -- CustomerSmartphone : Internet
+CARSServer -- OfficePC : Internet
+CARSServer -- Car : Internet
+
+@enduml

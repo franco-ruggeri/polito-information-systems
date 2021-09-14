@@ -24,6 +24,10 @@ The check in is similar. The customer parks the car in the rental car parking, s
 Invoicing and payments proceed through the credit card. 
 Damage deposits and possibly damage reimboursements are avoided, introducing by default an insurance to cover all.
 
+### Technology
+
+Assume one or more PCs per parking site office, one central server, one application for reservations, another for all the rest.
+
 ## Data model (Lab 1)
 
 ### AS IS
@@ -118,3 +122,25 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 1. Only customers with a valid driving license can rent a car.
 2. Only cars with at least one active insurance can be rented.
+
+## Technological model (Lab 3 - Part 2)
+
+### AS IS
+
+#### Deployment diagram
+
+![TODO](models/deployment_as_is.svg)
+
+#### Data flow diagram
+
+![TODO](models/data_flow_as_is.svg)
+
+### TO BE
+
+#### Deployment diagram
+
+![TODO](models/deployment_to_be.svg)
+
+#### Data flow diagram
+
+![TODO](models/data_flow_to_be.svg)
