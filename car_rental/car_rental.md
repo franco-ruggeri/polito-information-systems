@@ -133,7 +133,7 @@ Assume one or more PCs per parking site office, one central server, one applicat
 
 #### Data flow diagram
 
-![TODO](models/data_flow_as_is.svg)
+![TODO](models/data_flow_as_is.jpg)
 
 ### TO BE
 
@@ -143,4 +143,4 @@ Assume one or more PCs per parking site office, one central server, one applicat
 
 #### Data flow diagram
 
-![TODO](models/data_flow_to_be.svg)
+![TODO](models/data_flow_to_be.jpg)
