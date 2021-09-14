@@ -174,7 +174,7 @@
       <bpmn:incoming>Flow_1l5ihev</bpmn:incoming>
       <bpmn:outgoing>Flow_0h5p6q6</bpmn:outgoing>
     </bpmn:manualTask>
-    <bpmn:manualTask id="Activity_0zl5ix3" name="Hand keys over">
+    <bpmn:manualTask id="Activity_0zl5ix3" name="Hand over keys">
       <bpmn:incoming>Flow_0h5p6q6</bpmn:incoming>
       <bpmn:outgoing>Flow_0ar92xk</bpmn:outgoing>
     </bpmn:manualTask>

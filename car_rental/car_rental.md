@@ -45,33 +45,51 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 ## Process model (Lab 2 - Part 2)
 
-### Table
+### AS IS
 
-#### High-level process
-
-| Name | Input | Output | Roles involved | Description |
-| ---- | ----- | ------ | -------------- | ----------- |
-| Car rental | Car request | Car rented | Customer, Sales & Marketing, Accounting | The customer asks for a car (with optional previous reservation), signs a contract, pays, checks and signs the existing damages in the car, gets the car. |
-
-#### Sub-processes
+#### Table
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) | The customer reserves a car via website or call center. The credit card is requested and checked for guarantee. |
-| Check-out | Car request | Car rented | Customer, Desk employee, Accounting, Car management employee | The customer pays for the rental, including a damage deposit, signs the contract. The employee together with the customer checks the existing damage of the car and gives the keys to the customer. |
-| Check-in | Car rented | Car returned | Customer, Car management employee | The customer returns the car and checks with the car management employee for new damages. |
-| Invoice issue | Car returned | Invoice sent | Accounting | The company issues the invoice and possibly returns the damage deposit. |
+| Reservation | Reservation request | Reservation | Customer, Reservation, Call center | Reserve car via website or call center, check credit card for guarantee. |
+| Check-out | Car request | Contract signed, keys handed over | Customer, Desk employee, Accounting, Car management employee | Pay for rental (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
+| Check-in | Car returned | Keys returned, damage deposit returned, invoice issued | Customer, Car management employee, Desk employee | Check new damage, possibly return damage deposit, issue invoice. |
 
-### BPMN
+#### BPMN
 
-#### Reservation
+##### Reservation
 
-![](models/reservation_process.png)
+![](models/reservation_process_as_is.png)
 
-#### Check-out
+##### Check-out
 
-![](models/checkout_process.png)
+![](models/checkout_process_as_is.png)
 
-#### Check-in
+##### Check-in
 
-![](models/checkin_process.png)
+![](models/checkin_process_as_is.png)
+
+### TO BE
+
+#### Table
+
+| Name | Input | Output | Roles involved | Description |
+| ---- | ----- | ------ | -------------- | ----------- |
+| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) |  |
+| Check-out | Car request | Car rented | Customer, Desk employee, Accounting, Car management employee |  |
+| Check-in | Car rented | Car returned | Customer, Car management employee |  |
+| Invoice issue | Car returned | Invoice sent | Accounting |  |
+
+#### BPMN
+
+##### Reservation
+
+![](models/reservation_process_to_be.png)
+
+##### Check-out
+
+![](models/checkout_process_to_be.png)
+
+##### Check-in
+
+![](models/checkin_process_to_be.png)
