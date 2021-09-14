@@ -32,7 +32,7 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 - CARS (Organization)
   - Sales & Marketing (Organizational Unit)
-    - Reservation
+    - Reservation (Organizational Unit)
     - Call center (Organizational Unit)
     - Parking site office (Organizational Unit)
       - Desk employee (Role)
@@ -41,6 +41,7 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
   - IT area (Organizational Unit)
     - Web site maintainer (Role)
 - Customer (Role)
+- Credit card system (Organization)
 
 ## Process model (Lab 2 - Part 2)
 
@@ -56,10 +57,10 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
-| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) | The customer reserves a car via website or call center. |
-| Car rental contract | Car request | Contract signed and car rental paid | Customer, Desk employee, Accounting | The customer signs a contract and pays for the car rental, including a damage deposit. |
-| Car rental check-out | Contract signed and rental paid | Car rented | Customer, Car management employee | The customer checks with the car management employee for existings damages for the rented car, then signs the document listing them. |
-| Car rental check-in | Car rented | Car returned | Customer, Car management employee | The customer returns the car and checks with the car management employee for new damages. |
+| Reservation | Reservation request | Reservation | Customer, Call center (if the customer chooses it instead of website) | The customer reserves a car via website or call center. The credit card is requested and checked for guarantee. |
+| Payment | Car request | Contract signed | Customer, Desk employee, Accounting | The customer signs the contract and pays for the rental, including a damage deposit. |
+| Check-out | Contract signed | Car rented | Customer, Car management employee | The customer checks with the car management employee for existings damages for the rented car, then signs the document listing them. |
+| Check-in | Car rented | Car returned | Customer, Car management employee | The customer returns the car and checks with the car management employee for new damages. |
 | Invoice issue | Car returned | Invoice sent | Accounting | The company issues the invoice and possibly returns the damage deposit. |
 
 ### BPMN
@@ -67,3 +68,15 @@ Damage deposits and possibly damage reimboursements are avoided, introducing by 
 #### Reservation
 
 ![](models/reservation_process.png)
+
+#### Payment
+
+[](models/payment_process.png)
+
+#### Check-out
+
+[](models/checkout_process.png)
+
+#### Check-in
+
+[](models/checkin_process.png)
