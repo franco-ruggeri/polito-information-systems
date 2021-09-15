@@ -120,8 +120,33 @@ Assume one or more PCs per parking site office, one central server, one applicat
 
 ## Business rules (Lab 3 - Part 1)
 
-1. Only customers with a valid driving license can rent a car.
-2. Only cars with at least one active insurance can be rented.
+### Natural language
+
+| ID | Description |
+| -- | ----------- |
+| BR1 | Only customers with a valid driving license can rent a car. |
+| BR2 | Only cars with at least one active insurance can be rented. |
+
+### Drools Rule Language
+
+#### BR1
+
+##### AS IS
+
+$c: Customer( $d : drivingLicense)
+Contract( customer == $c, endDate > $d.expirationDate )
+
+##### TO BE
+
+$c: Customer( $d : drivingLicense)
+Reservation( customer == $c, endDate > $d.expirationDate )
+
+#### BR2
+
+$c : Car()
+exists Insurance( car == $c )
+
+### TO BE
 
 ## Technological model (Lab 3 - Part 2)
 
