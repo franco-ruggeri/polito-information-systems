@@ -5,7 +5,7 @@ class CARS
 class "Parking site" as ParkingSite
 class Address
 class Car
-class "Car Model" as CarModel
+class "Car model" as CarModel
 CARS o-- "*" ParkingSite
 CARS -- "*" CarModel : offers >
 ParkingSite -- "*" Car : is parked in <
