@@ -1,13 +1,15 @@
-# Vehicle transfer of ownership
+# Table of contents
 
-## Description
+- [Abstract](#abstract)
+- [Data model](#data-model)
+
+# Abstract
 
 In all countries a state agency keeps track of all vehicles, their characteristics and their owners.
 
-In Italy the Ufficio per la Motorizzazione Civile (a branch of the Ministry of Transport) manages the technical side of vehicles. It is the entity that decides if a vehicle can circulate, in the positive case issues a tag for the vehicle, and a corresponding ‘vehicle registration document’ (‘carta di circolazione’) that contains the technical description of the vehicle (type of engine, emissions, power, vehicle dimensions, tyres, etc)
+In Italy the Ufficio per la Motorizzazione Civile (a branch of the Ministry of Transport) manages the technical side of vehicles. It is the entity that decides if a vehicle can circulate, in the positive case issues a tag for the vehicle, and a corresponding ‘vehicle registration document’ (‘carta di circolazione’) that contains the technical description of the vehicle (type of engine, emissions, power, vehicle dimensions, tyres, etc).
 
-For historical reasons another entity, Automobile Club d’Italia (ACI), keeps track of ownership of vehicles. The PRA (Pubblico Registro Automobilistico), managed by ACI, contains the list of all vehicles that can circulate (i.e. that have a ‘vehicle registration’) and for each vehicle all owners (current and past owners). The PRA issues another document, the ‘certificate of ownership’ (‘certificato di proprietà’) that states who is (are) the current owner(s) of a vehicle.
-
+For historical reasons another entity, Automobile Club d’Italia (ACI), keeps track of ownership of vehicles. The PRA (Pubblico Registro Automobilistico), managed by ACI, contains the list of all vehicles that can circulate (i.e. that have a ‘vehicle registration’) and for each vehicle all owners (current and past owners). The PRA issues another document, the ‘certificate of ownership’ (‘certificato di proprietà’) that states who is (are) the current owner(s) of a vehicle.  
 We focus on the transfer of ownership process.
 
 ### AS IS process
@@ -19,6 +21,6 @@ The buyer B then  brings the certified sale contract and the certificate of owne
 Propose a new process, fully online. Assume that both O and B have public digital identities. A public digital identity (in Italy the SPID) allows to authorize with a very high level of trust citizens that want to access digital services provided by the public administration. For instance SPID requests username, password and one time password sent on a mobile phone. 
 Assume also this new process is supported by the PRA, that builds a dedicated web site, accessible by SPID. Also all payments must be performed online (no more stamps).
 
-## Lab 1 - Data model
+## Data model
 
 ![](models/data.svg)

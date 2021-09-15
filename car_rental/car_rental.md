@@ -1,11 +1,18 @@
-# Car rental
+# Table of contents
 
-## Description
+- [Abstract](#abstract)
+- [Data model](#data-model)
+- [Organizational model](#organizational-model)
+- [Process model](#process-model)
+- [Business rules](#business-rules)
+- [Technological model](#technological-model)
+
+# Abstract
 
 Car rental companies own a number of cars and a number of sites where cars are parked when not in use. Customers rent cars for a period of time (having made a reservation, or not) and return them. 
 We focus on the CARS company.
 
-### AS IS process
+## AS IS process
 
 A customer may reserve a car, using the company web site, or the call center (this step is optional). 
 A customer steps into the office close to the rental car parking site and completes the first step of the check out. The contract for the rental is defined (period of rental, name of driver, related ID document and driving license, insurances, damage deposit, partial and total fees, credit card), signed by both parties, and the payment for the rental is completed (payment has two parts, rental and damage deposit – the latter is normally returned at the end of the rental).  Further, a specific car (identified by its tag) is assigned to the rental. 
@@ -13,7 +20,7 @@ Then the customer walks to the car parking site. Here the second part of the che
 An employee checks with the customer the car and lists all visible damages on the car in an annex to the contract. Also this annex is signed by both parties. Then the employee hands the car to the customer (this of course includes the keys) and the rental starts.
 The final step is check in. The customer drives the car to parking site. An employee receives the car and the keys, checks with the customer for new damages. If there are damages another process starts (we leave this process out of this analysis). At this point the rental ends. The company issues an invoice and possibly returns the damage deposit to the customer.
 
-### TO BE process
+## TO BE process
 
 The idea is to improve the process by introducing the same innovations used by car sharing companies. 
 A customer has first to define an account with CARS. In this step the customer uploads his documents (ID, driving license) and a credit card. If all is right CARS approves and the customer can later rent cars. This step can be performed on a PC or smart phone. In any case the customer has to install the CARS app on her smartphone. 
@@ -24,23 +31,23 @@ The check in is similar. The customer parks the car in the rental car parking, s
 Invoicing and payments proceed through the credit card. 
 Damage deposits and possibly damage reimboursements are avoided, introducing by default an insurance to cover all.
 
-### Technology
+## Technology
 
 Assume one or more PCs per parking site office, one central server, one application for reservations, another for all the rest.
 
-## Data model (Lab 1)
+# Data model
 
-### AS IS
+## AS IS
 
 ![TODO](models/data_as_is.svg)
 
-### TO BE
+## TO BE
 
 ![TODO](models/data_to_be.svg)
 
-## Organizational model (Lab 2 - Part 1)
+# Organizational model
 
-### AS IS
+## AS IS
 
 - CARS (Organization)
   - Reservation office (Organizational Unit)
@@ -53,7 +60,7 @@ Assume one or more PCs per parking site office, one central server, one applicat
 - Customer (Role)
 - Credit card system (Organization)
 
-### TO BE
+## TO BE
 
 - CARS (Organization)
   - Registration office (Organizational Unit)
@@ -63,11 +70,11 @@ Assume one or more PCs per parking site office, one central server, one applicat
 - Customer (Role)
 - Credit card system (Organization)
 
-## Process model (Lab 2 - Part 2)
+# Process model
 
-### AS IS
+## AS IS
 
-#### Table
+### Table
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
@@ -75,23 +82,23 @@ Assume one or more PCs per parking site office, one central server, one applicat
 | Check-out | Car request | Car rented | Customer, desk employee, accounting, car management employee | Check credit card, driving license and car availability (if not reserved), pay (including a damage deposit), sign contract, check and sign existing damage of the car, hand over keys. |
 | Check-in | Car returned | rental finished | Customer, car management employee, desk employee | Check new damage, possibly return damage deposit, issue invoice. |
 
-#### BPMN
+### BPMN
 
-##### Reservation
+#### Reservation
 
 ![TODO](models/reservation_process_as_is.png)
 
-##### Check-out
+#### Check-out
 
 ![TODO](models/checkout_process_as_is.png)
 
-##### Check-in
+#### Check-in
 
 ![TODO](models/checkin_process_as_is.png)
 
-### TO BE
+## TO BE
 
-#### Table
+### Table
 
 | Name | Input | Output | Roles involved | Description |
 | ---- | ----- | ------ | -------------- | ----------- |
@@ -100,72 +107,72 @@ Assume one or more PCs per parking site office, one central server, one applicat
 | Check-out | Car request | Car rented | Customer, reservation office | Start rental, show position and tag of car, open car. |
 | Check-in | Car returned | Rental finished | Customer, reservation office | Close car, end rental, calculate amount to pay, pay, issue invoice. |
 
-#### BPMN
+### BPMN
 
-##### Sign-up
+#### Sign-up
 
 ![TODO](models/signup_process_to_be.png)
 
-##### Reservation
+#### Reservation
 
 ![TODO](models/reservation_process_to_be.png)
 
-##### Check-out
+#### Check-out
 
 ![TODO](models/checkout_process_to_be.png)
 
-##### Check-in
+#### Check-in
 
 ![TODO](models/checkin_process_to_be.png)
 
-## Business rules (Lab 3 - Part 1)
+# Business rules
 
-### Natural language
+## Natural language
 
 | ID | Description |
 | -- | ----------- |
 | BR1 | Only customers with a valid driving license can rent a car. |
 | BR2 | Only cars with at least one active insurance can be rented. |
 
-### Drools Rule Language
+## Drools Rule Language
 
-#### BR1
+### BR1
 
-##### AS IS
+#### AS IS
 
-$c: Customer( $d : drivingLicense)
+$c: Customer( $d : drivingLicense)  
 Contract( customer == $c, endDate > $d.expirationDate )
 
-##### TO BE
+#### TO BE
 
-$c: Customer( $d : drivingLicense)
+$c: Customer( $d : drivingLicense)  
 Reservation( customer == $c, endDate > $d.expirationDate )
 
-#### BR2
+### BR2
 
-$c : Car()
+$c : Car()  
 exists Insurance( car == $c )
 
-### TO BE
+## TO BE
 
-## Technological model (Lab 3 - Part 2)
+# Technological model
 
-### AS IS
+## AS IS
 
-#### Deployment diagram
+### Deployment diagram
 
 ![TODO](models/deployment_as_is.svg)
 
-#### Data flow diagram
+### Data flow diagram
 
 ![TODO](models/data_flow_as_is.jpg)
 
-### TO BE
+## TO BE
 
-#### Deployment diagram
+### Deployment diagram
 
 ![TODO](models/deployment_to_be.svg)
 
-#### Data flow diagram
+### Data flow diagram
 
 ![TODO](models/data_flow_to_be.jpg)
