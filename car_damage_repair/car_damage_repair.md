@@ -54,7 +54,7 @@ In the following model the TO BE situation.
 
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
-| Claim management | Damage | Repair | Search vehicle, check claim request, open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, close claim. | Insurer, driver, body shop |
+| Claim management | Damage | Repair | Search vehicle, check claim request, open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, pay body shop, possibly pay insurance adjuster, close claim. | Insurer, driver, body shop |
 | Estimation assessment | Estimation received | Estimation accepted/refused | Retrieve claim, check estimation, assess estimation, update claim (attach estimate, update state), possibly notify insurance adjuster (if not accepted), notify body shop. | Insurer, body shop, insurance adjuster |
 
 ## Technological model
@@ -97,15 +97,15 @@ In the following model the TO BE situation.
 
 | KPI | AS IS | TO BE |
 | --- | ----- | ----- |
-| N_OC | | No changes (not related to IS). |
-| N_CC | | No changes (not related to IS). |
-| N_UC | | No changes (not related to IS). |
-| N_RE | | No changes (not related to IS). |
-| LT_Driver | | May be slightly reduced due to faster communication. |
-| LT_Insurer | | May be slightly reduced due to faster communication, agreed body shops. |
-| DS | | Improves because the driver is less involved in the process. |
-| UC | | Improves because less effort from employees in the process is needed. |
-| RE | | May improve because of agreed body shops. |
+| N_OC | - | No changes (not related to IS). |
+| N_CC | - | No changes (not related to IS). |
+| N_UC | - | No changes (not related to IS). |
+| N_RE | - | No changes (not related to IS). |
+| LT_Driver | - | May be slightly reduced due to faster communication. |
+| LT_Insurer | - | May be slightly reduced due to faster communication, agreed body shops. |
+| DS | - | Improves because the driver is less involved in the process. |
+| UC | - | Improves because less effort from employees in the process is needed. |
+| RE | - | May improve because of agreed body shops. |
 
 ## Software functions
 
@@ -118,6 +118,7 @@ In the following model the TO BE situation.
 
 | Stakeholder | PROs | CONs |
 | ----------- | ---- | ---- |
-| Driver | Less involved in the process (less stress, less effort) | Needs to be able to use browser |
-| Body shop | Makes the initial estimation | |
 | Insurer | Reduces cost of the processes | Needs to invest in IS |
+| Driver | Less involved in the process (less stress, less effort) | Needs to be able to use browser |
+| Body shop | Makes the initial estimation | - |
+| Insurance adjuster | - | Less work available |
