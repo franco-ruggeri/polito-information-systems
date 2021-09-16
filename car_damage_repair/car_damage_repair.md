@@ -54,6 +54,8 @@ In the following model the TO BE situation.
 
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
+| Sign-up | Account request | Account | Check driver, check vehicle, register account | Insurer, driver |
+| Body shop selection | Claim | Body shop selected | Log-in, retrieve claim, select body shop. | Driver |
 | Claim management | Damage | Repair | Search vehicle, check claim request, open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, pay body shop, possibly pay insurance adjuster, close claim. | Insurer, driver, body shop |
 | Estimation assessment | Estimation received | Estimation accepted/refused | Retrieve claim, check estimation, assess estimation, update claim (attach estimate, update state), possibly notify insurance adjuster (if not accepted), notify body shop. | Insurer, body shop, insurance adjuster |
 
@@ -86,16 +88,22 @@ In the following model the TO BE situation.
 | - | N_UE | General | Number of uploaded estimations | - |
 | - | N_RE | General | Number of rejected estimations | - |
 | CSF1 | LT_Driver | Service | Time from accident to car repaired | Days |
-| CSF1 | LT_Insurer | Service | Time from claim open to estimation received | Hours |
-| CSF1 | DS | Quality | Driver's satisfaction (rate from 1 to 5) | Km |
-| CSF2 | UC | Efficiency | Total cost of claim management / N_CC | Euro |
+| CSF1 | LT_Insurer | Service | Time from claim open to estimation approved | Hours |
+| CSF1 | DS | Quality | Driver's satisfaction | Rate from 1 to 5 |
+| CSF2 | UC_claim | Efficiency | Total cost of claim management / N_CC <br> Cost includes: working hours of employees, IT support. | Euro |
 | CSF2 | RE | Quality | N_RE / N_UE * 100 | Percentage |
+
+## Other measures
+
+| CSF | ID | Description | Unit of measure |
+| --- | -- | ----------- | --------------- |
+| CSF1 | UC_driver | Upfront money paid by driver to body shop | Euro |
 
 # Process redesign
 
 ## Performance
 
-| KPI | AS IS | TO BE |
+| ID | AS IS | TO BE |
 | --- | ----- | ----- |
 | N_OC | - | No changes (not related to IS). |
 | N_CC | - | No changes (not related to IS). |
@@ -104,13 +112,16 @@ In the following model the TO BE situation.
 | LT_Driver | - | May be slightly reduced due to faster communication. |
 | LT_Insurer | - | May be slightly reduced due to faster communication, agreed body shops. |
 | DS | - | Improves because the driver is less involved in the process. |
-| UC | - | Improves because less effort from employees in the process is needed. |
+| UC_claim | - | Improves because less effort from employees in the process is needed and insurance adjuster is not always needed. |
+| UC_driver | Cost of repair | Zero |
 | RE | - | May improve because of agreed body shops. |
 
 ## Software functions
 
 | Process / activity | Software functions |
 | ------------------ | ------------------ |
+| Sign-up | CRUD driver, CRUD vehicle |
+| Body shop selection | Show list of body shops, select body shop. |
 | Claim management | Search vehicle, search driver, CRUD claim, CRUD body shop, send email. |
 | Estimation management | Search/update claim, search vehicle, CRUD estimation, send email. |
 
@@ -118,7 +129,7 @@ In the following model the TO BE situation.
 
 | Stakeholder | PROs | CONs |
 | ----------- | ---- | ---- |
-| Insurer | Reduces cost of the processes | Needs to invest in IS |
-| Driver | Less involved in the process (less stress, less effort) | Needs to be able to use browser |
+| Insurer | Reduces cost of the processes <br> Increases customer satisfaction | Needs to invest in IS |
+| Driver | Less involved in the process (less stress, less effort) <br> No upfront money | Needs to be able to use browser <br> Less choice of body shops (only agreed) |
 | Body shop | Makes the initial estimation | - |
 | Insurance adjuster | - | Less work available |

@@ -49,7 +49,7 @@ I -- "*" V : insures >
 V "1..*" -- D : drived by >
 Claim "*" -- V : related to >
 Claim "*" -- BS : selected for repair <
-Claim -- "*" Estimation : estimates <
+Claim -- "0..2" Estimation : estimates <
 Claim -- Repair : related to <
 Estimation -- "*" Picture : attached to <
 Estimation "*" -- Estimator : provides <
