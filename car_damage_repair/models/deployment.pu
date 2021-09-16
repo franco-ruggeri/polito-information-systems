@@ -13,9 +13,9 @@ artifact Browser as Browser2
 artifact Browser as Browser3
 
 Server1 -- Server2 : Internet
-Server1 -- BSDevice : Internet
-Server1 -- DDevice : Internet
-Server1 -- IADevice : Internet
+Server1 -- "*" BSDevice : Internet
+Server1 -- "*" DDevice : Internet
+Server1 -- "*" IADevice : Internet
 
 ClaimManagementApp --> Server1 : <<deploy>>
 DBMS --> Server2 : <<deploy>>
