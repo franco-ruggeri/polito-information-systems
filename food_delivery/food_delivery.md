@@ -45,7 +45,10 @@ In the following model the TO BE situation.
 
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
-| | | | | |
+| New restaurant | Agreement request | Restaurant registered | Define and negotiate agreement, add restaurant (info, menu, discount policies). | FOOD, restaurant |
+| Food order | Want to buy food | Food order | Select restaurant, select dishes, provide address, provide credit card, check credit card, pay, create order, notify restaurant. | Customer, FOOD |
+| Food delivery | Food order | Food order closed | Collect package in restaurant, deliver package to customer, close order. | Delivery employee |
+| Rate and tip | Food delivered | Rate/tip added | Select order, add rate and/or tip. | Customer |
 
 ## Technological model
 
