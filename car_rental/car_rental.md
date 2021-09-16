@@ -299,7 +299,7 @@ Remark: in the following we consider only the *TO BE* situation.
 | C2 | - | - | - | M21 | - |
 | C3 | - | M31 | - | - | - |
 
-## Key Process Indicators (KPIs)
+## Key Performance Indicators (KPIs)
 
 ### Reservation
 
