@@ -6,7 +6,7 @@
 - [Process model](#process-model)
 - [Business rules](#business-rules)
 - [Technological model](#technological-model)
-- [Business Model Canvas](#business-model-canvas)
+- [Strategy and management](#strategy-and-management)
 
 # Abstract
 
@@ -57,6 +57,7 @@ Assume one or more PCs per parking site office, one central server, one applicat
     - Desk employee (Role)
     - Car management employee (Role)
   - Accounting (Organization Unit)
+  - Puchase office (Organizational Unit)
   - IT area (Organizational Unit)
 - Customer (Role)
 - Credit card system (Organization)
@@ -67,6 +68,7 @@ Assume one or more PCs per parking site office, one central server, one applicat
   - Registration office (Organizational Unit)
   - Reservation office (Organizational Unit)
   - Accounting (Organization Unit)
+  - Puchase office (Organizational Unit)
   - IT area (Organizational Unit)
 - Customer (Role)
 - Credit card system (Organization)
@@ -168,6 +170,10 @@ exists Insurance( car == $c )
 
 ![TODO](models/data_flow_as_is.jpg)
 
+### Software functions
+
+TODO
+
 ## TO BE
 
 ### Deployment diagram
@@ -178,7 +184,15 @@ exists Insurance( car == $c )
 
 ![TODO](models/data_flow_to_be.jpg)
 
-# Business Model Canvas
+### Software functions
+
+TODO
+
+# Strategy and management
+
+Remark: in the following we consider only the *TO BE* situation.
+
+## Business Model Canvas
 
 <table>
   <tr>
@@ -255,3 +269,54 @@ exists Insurance( car == $c )
     </td>
   </tr>
 </table>
+
+## Critical Success Factors (CSFs)
+
+### Indicators
+
+| CSF | Type | Description |
+| -- | ---- | ----------- |
+| C1 | Competitive | Usability of service. |
+| C2 | Competitive | Low price of rental. |
+| C3 | Business domain | Availability of cars. |
+
+### Measures
+
+| CSF | Measure | Description |
+| --- | ------- | ----------- |
+| C1 | M11 | Response time in reservation. |
+| C1 | M12 | Response time in check-out. |
+| C1 | M13 | Response time in check-in. |
+| C1 | M14 | Time to sign-up. |
+| C2 | M21 | Cost per car (purchase, maintenance, insurance). |
+| C3 | M31 | Percentage of satisfied reservations. |
+
+### CSF vs organization
+
+| CSF | Registration office | Reservation office | Accounting | Purchase office | IT area |
+| --- | ------------------- | ------------------ | ---------- | --------------- | ------- |
+| C1 | M14 | M11-M13 | M11 | - | M11-M14 |
+| C2 | - | - | - | M21 | - |
+| C3 | - | M31 | - | - | - |
+
+## Key Process Indicators (KPIs)
+
+### Reservation
+
+| Type | Description | Unit of measure |
+| ---- | ----------- | --------------- |
+| General | Input volume | # reservation requests |
+| General | Output volume | # reservations |
+| General | Inventory | # cars |
+| Efficiency | Cost per unit | cost of IT for website/app / # reservation requests |
+| Service | Response time | time reservation completed - time reservation requested |
+| Quality | Reliability | # lost reservations |
+| Quality | Satisfaction | average rate of customers (for reservation, via website/app) |
+
+### Check-out
+
+TODO
+
+### Check-in
+
+TODO
