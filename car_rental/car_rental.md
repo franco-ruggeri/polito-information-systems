@@ -6,6 +6,7 @@
 - [Process model](#process-model)
 - [Business rules](#business-rules)
 - [Technological model](#technological-model)
+- [Business Model Canvas](#business-model-canvas)
 
 # Abstract
 
@@ -176,3 +177,81 @@ exists Insurance( car == $c )
 ### Data flow diagram
 
 ![TODO](models/data_flow_to_be.jpg)
+
+# Business Model Canvas
+
+<table>
+  <tr>
+    <td rowspan="2">
+      <b>Key Partners</b>
+      <p>
+        Car producer<br>
+        Car maintainer<br>
+        Insurer<br>
+        Car firmware producer
+      </p>
+    </td>
+    <td>
+      <b>Key Activities</b>
+      <p>
+        Car rental (reservation, check-out, check-in)<br>
+        Advertising<br>
+        Car purchase<br>
+        Car management (relocation planning)
+      </p>
+    </td>
+    <td rowspan="2" colspan="2">
+      <b>Value Propositions</b>
+      <p>
+        Easy to use, low cost car rental in city centers<br>
+      </p>
+    </td>
+    <td>
+      <b>Customer Relationships</b>
+      <p>
+        Personal assistance (call center)<br>
+        Self-service (website, app)
+      </p>
+    </td>
+    <td rowspan="2">
+      <b>Customer Segments</b>
+      <p>
+        Mass market
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Key Resources</b>
+      <p>
+        Cars<br>
+        Parking sites
+      </p>
+    </td>
+    <td>
+      <b>Channels</b>
+      <p>
+        CARS.com<br>
+        CARS app
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <b>Cost Structure</b>
+      <p>
+        Purchase of cars<br>
+        Maintenance of cars<br>
+        Insurance of cars<br>
+        Rent/purchase of parking sites<br>
+        Advertising
+      </p>
+    </td>
+    <td colspan="3">
+      <b>Revenue Streams</b>
+      <p>
+        Car rental
+      </p>
+    </td>
+  </tr>
+</table>
