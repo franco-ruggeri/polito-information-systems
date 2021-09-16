@@ -58,7 +58,7 @@ In the following model the TO BE situation.
 
 | ID | Natural language |
 | -- | ---------------- |
-| | |
+| BR1 | Distance from restaurant's address to customer's address must be less than 5 km. |
 
 # Strategy and management
 
@@ -66,19 +66,20 @@ In the following model the TO BE situation.
 
 | ID | Description |
 | -- | ----------- |
-| | |
+| CSF1 | Increase customer satisfaction |
+| CSF2 | reduce the cost of the process for the restaurant R and company FOOD |
 
 ## KPIs
 
 | CSF | ID | Category | Description | Unit of measure |
 | --- | -------- | ---- | ----------- | --------------- |
-| | | | | |
-
-## Other measures
-
-| CSF | ID | Description | Unit of measure |
-| --- | -- | ----------- | --------------- |
-| | | | |
+| - | NO | General | Number of orders | - |
+| - | NDO | General | Number of delivered ordered | - |
+| CSF1 | CS | Quality | Rate given to order | Stars (1 to 5) |
+| CSF1 | LT | Service | Time from order to delivery | Time |
+| CSF1 | PWO | Quality | Percentage of wrong orders (with mistakes in delivered food) | - |
+| CSF2 | UC_order | Efficiency | Total cost of order / NDO <br> Total cost includes: employees' salary, cost of website, cost of vehicle (buy, maintain, fuel) | Euro |
+| CSF2 | UC_restaurant | Efficiency | Total cost of order / NDO <br> Total cost includes: marketing, time of employees for cooking (kitchen), time of employees for managing orders | Euro |
 
 # Process redesign
 
@@ -86,16 +87,25 @@ In the following model the TO BE situation.
 
 | ID | AS IS | TO BE |
 | --- | ----- | ----- |
-| | | |
+| NO, NDO | | No changes. |
+| CS, PWO | | Increases, less mistakes thanks to the selection via website and faster communication. |
+| LT | | May slightly increase, faster communication. |
+| UC_order | Not available, FOOD is introduced in TO BE | |
+| UC_restaurant | | Reduces, cost of managing and delivering orders is outsourced (no vehicles, no delivery employees) |
 
 ## Software functions
 
 | Process / activity | Software functions |
 | ------------------ | ------------------ |
-| | |
+| New restaurant | CRUD restaurant, CRUD dish, CRUD discount policy. |
+| Food order | Show list of restaurants, select restaurant, show list of dishes, select dishes, CRUD order, pay with credit card, send notification to restaurant. |
+| Food delivery | Search order, close order. |
+| Rate and tip | Search order, add rate, pay tip. |
 
 ## Stakeholders
 
 | Stakeholder | PROs | CONs |
 | ----------- | ---- | ---- |
-| | | |
+| FOOD | New business | - |
+| Restaurant | Outsourcing non-key activities, focus on food preparation | Share income |
+| Customer | Larger choice of restaurants on one platform, satisfaction improved | - |
