@@ -1,0 +1,61 @@
+@startuml
+
+class "Insurance" as I
+class "Body shop" as BS {
+	+Address
+}
+class "Insurance adjuster" as IA {
+	+Name
+	+Surname
+}
+class "Driver" as D {
+	+SSN
+	+Name
+	+Surname
+	+Date of birth
+}
+class "Vehicle" as V {
+	+ID
+	+Model
+	+Tag
+}
+class Estimator {
+	+ID
+}
+class Claim {
+	+ID
+	+Start date
+	+End date
+	+Status
+}
+class Estimation {
+	+Cost
+	+Date
+	+Agreed
+}
+class Picture {
+	+ID
+	+Data
+}
+class Repair {
+	+Start date
+	+End date
+	+Cost
+}
+
+I -- "*" BS : agreed
+I -- "*" V : insures >
+V "1..*" -- D : drived by >
+Claim "*" -- V : related to >
+Claim "*" -- BS : selected for repair <
+Claim -- "*" Estimation : estimates <
+Claim -- Repair : related to <
+Estimation -- "*" Picture : attached to <
+Estimation "*" -- Estimator : provides <
+Estimator <|-- BS
+Estimator <|-- IA
+
+note "For simplicity, one driver per vehicle" as N1
+D .. N1
+
+@enduml
