@@ -10,9 +10,9 @@ artifact "Food delivery app" as FDA
 artifact "Browser" as B1
 artifact "Browser" as B2
 
-FS -- DES : Internet
-FS -- CD : Internet
-FS -- RD : Internet
+FS -- "*" DES : Internet
+FS -- "*" CD : Internet
+FS -- "*" RD : Internet
 
 FDMA ..> FS : <<deploy>>
 DES ..> FDA : <<deploy>>
