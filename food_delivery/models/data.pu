@@ -1,0 +1,81 @@
+@startuml
+
+class FOOD
+
+class Restaurant {
+	+ID
+	+Name
+}
+
+class Customer {
+	+SSN
+	+Name
+	+Surname
+}
+
+class DeliveryEmployee {
+	+ID
+}
+
+class Dish {
+	+ID
+	+Description
+	+Price
+}
+
+class Order {
+	+ID
+	+Start timestamp
+	+Delivery timestamp
+	+Status
+	+Rate
+}
+
+class Address {
+	+City
+	+Type
+	+Name
+	+Civic number
+}
+
+class "Credit card" as CreditCard {
+	+Number
+	+Expiration date
+}
+
+class Payment {
+	+Amount
+}
+
+class OrderPayment
+class DeliveryTip
+
+class Invoice {
+	+ID
+	+Date
+}
+
+class Quantity {
+	+Quantity
+}
+
+Customer <|-- DeliveryEmployee
+Payment <|-- OrderPayment
+Payment <|-- DeliveryTip
+
+FOOD -- "*" Restaurant : has agreement with >
+FOOD -- "*" Order : manages >
+Order "*" -- Customer : orders <
+Order "*" -- Restaurant : receives <
+Customer -- Address
+Restaurant -- Address
+Restaurant -- "*" Dish : has in menu >
+Order -- "1..*" Dish
+(Order, Dish) .. Quantity
+Order -- CreditCard : paid with >
+Order -- OrderPayment : related to <
+Order -- "0..1" DeliveryTip : related to <
+Order -- Invoice : related to <
+Order -- DeliveryEmployee : delivers <
+
+@enduml
