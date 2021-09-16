@@ -1,0 +1,22 @@
+@startuml
+
+node "Insurer's server" as Server1
+node "Insurer's server" as Server2
+node "Body shop's device" as BSDevice
+node "Driver's device" as DDevice
+
+artifact "Claim management app" as ClaimManagementApp
+artifact DBMS
+artifact Browser as Browser1
+artifact Browser as Browser2
+
+Server1 -- Server2 : Internet
+Server1 -- BSDevice : Internet
+Server1 -- DDevice : Internet
+
+ClaimManagementApp --> Server1 : <<deploy>>
+DBMS --> Server2 : <<deploy>>
+BSDevice <-- Browser1 : <<deploy>>
+DDevice <-- Browser2 : <<deploy>>
+
+@enduml

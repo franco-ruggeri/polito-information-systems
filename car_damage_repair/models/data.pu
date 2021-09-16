@@ -26,7 +26,7 @@ class Claim {
 	+ID
 	+Start date
 	+End date
-	+Status
+	+State
 }
 class Estimation {
 	+Cost

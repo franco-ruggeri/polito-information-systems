@@ -54,7 +54,8 @@ In the following model the TO BE situation.
 
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
-| | | | | |
+| Claim management | Damage | Repair | Open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, close claim | Insurer, driver, body shop |
+| Estimation assessment | Estimation received | Estimation accepted/refused | Receive Retrieve claim, check estimation, assess estimation, update claim (attach estimate, update state), possibly notify insurance adjuster (if not accepted), notify body shop | Insurer, body shop, insurance adjuster |
 
 ## Technological model
 
