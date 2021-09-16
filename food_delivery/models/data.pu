@@ -5,6 +5,8 @@ class FOOD
 class Restaurant {
 	+ID
 	+Name
+	+Open hour
+	+Close hour 
 }
 
 class Customer {
@@ -21,6 +23,12 @@ class Dish {
 	+ID
 	+Description
 	+Price
+}
+
+class "Discount policy" as DiscountPolicy {
+	+ID
+	+Type
+	+Description
 }
 
 class Order {
@@ -70,6 +78,7 @@ Order "*" -- Restaurant : receives <
 Customer -- Address
 Restaurant -- Address
 Restaurant -- "*" Dish : has in menu >
+Restaurant -- "*" DiscountPolicy : provides >
 Order -- "1..*" Dish
 (Order, Dish) .. Quantity
 Order -- CreditCard : paid with >

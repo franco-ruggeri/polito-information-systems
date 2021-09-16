@@ -1,0 +1,22 @@
+@startuml
+
+node "FOOD's server" as FS
+node "Delivery employee's smartphone" as DES
+node "Customer's device" as CD
+node "Restaurant's device" as RD
+
+artifact "Food delivery management app" as FDMA
+artifact "Food delivery app" as FDA
+artifact "Browser" as B1
+artifact "Browser" as B2
+
+FS -- DES : Internet
+FS -- CD : Internet
+FS -- RD : Internet
+
+FDMA ..> FS : <<deploy>>
+DES ..> FDA : <<deploy>>
+CD ..> B1 : <<deploy>>
+RD ..> B2 : <<deploy>>
+
+@enduml
