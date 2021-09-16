@@ -46,6 +46,7 @@ In the following model the TO BE situation.
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
 | New restaurant | Agreement request | Restaurant registered | Define and negotiate agreement, add restaurant (info, menu, discount policies). | FOOD, restaurant |
+| Restaurant management | Change request | Change done | Search restaurant, update restaurant (menu / discount policy) |
 | Food order | Want to buy food | Food order | Select restaurant, select dishes, provide address, provide credit card, check credit card, pay, create order, notify restaurant. | Customer, FOOD |
 | Food delivery | Food order | Food order closed | Collect package in restaurant, deliver package to customer, close order. | Delivery employee |
 | Rate and tip | Food delivered | Rate/tip added | Select order, add rate and/or tip. | Customer |
@@ -97,7 +98,8 @@ In the following model the TO BE situation.
 
 | Process / activity | Software functions |
 | ------------------ | ------------------ |
-| New restaurant | CRUD restaurant, CRUD dish, CRUD discount policy. |
+| New restaurant | Create restaurant, create dish, create discount policy. |
+| Restaurant management | CRUD restaurant, CRUD dish, CRUD discount policy. |
 | Food order | Show list of restaurants, select restaurant, show list of dishes, select dishes, CRUD order, pay with credit card, send notification to restaurant. |
 | Food delivery | Search order, close order. |
 | Rate and tip | Search order, add rate, pay tip. |
