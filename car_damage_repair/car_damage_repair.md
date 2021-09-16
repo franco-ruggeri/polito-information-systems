@@ -54,8 +54,8 @@ In the following model the TO BE situation.
 
 | Name | Input | Output | Description | Organizational units / roles involved |
 | ---- | ----- | ------ | ----------- | ------------------------------------- |
-| Claim management | Damage | Repair | Open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, close claim. | Insurer, driver, body shop |
-| Estimation assessment | Estimation received | Estimation accepted/refused | Receive Retrieve claim, check estimation, assess estimation, update claim (attach estimate, update state), possibly notify insurance adjuster (if not accepted), notify body shop. | Insurer, body shop, insurance adjuster |
+| Claim management | Damage | Repair | Search vehicle, check claim request, open claim, wait for body shop selected, update claim (selected body shop), notify body shop, notify driver, wait for estimation accepted, wait for repair, close claim. | Insurer, driver, body shop |
+| Estimation assessment | Estimation received | Estimation accepted/refused | Retrieve claim, check estimation, assess estimation, update claim (attach estimate, update state), possibly notify insurance adjuster (if not accepted), notify body shop. | Insurer, body shop, insurance adjuster |
 
 ## Technological model
 
@@ -74,13 +74,22 @@ In the following model the TO BE situation.
 
 | ID | Description |
 | -- | ----------- |
-| | |
+| CSF1 | Maximum convenience for driver |
+| CSF2 | Decrease cost of claim process |
 
 ## KPIs
 
 | CSF | ID | Category | Description | Unit of measure |
 | --- | -------- | ---- | ----------- | --------------- |
-| | | | | |
+| - | N_OC | General | Number of open claims | - |
+| - | N_CC | General | Number of closed claims | - |
+| - | N_UE | General | Number of uploaded estimations | - |
+| - | N_RE | General | Number of rejected estimations | - |
+| CSF1 | LT_Driver | Service | Time from accident to car repaired | Days |
+| CSF1 | LT_Insurer | Service | Time from claim open to estimation received | Hours |
+| CSF1 | DS | Quality | Driver's satisfaction (rate from 1 to 5) | Km |
+| CSF2 | UC | Efficiency | Total cost of claim management / N_CC | Euro |
+| CSF2 | RE | Quality | N_RE / N_UE * 100 | Percentage |
 
 # Process redesign
 
@@ -88,16 +97,27 @@ In the following model the TO BE situation.
 
 | KPI | AS IS | TO BE |
 | --- | ----- | ----- |
-| | | |
+| N_OC | | No changes (not related to IS). |
+| N_CC | | No changes (not related to IS). |
+| N_UC | | No changes (not related to IS). |
+| N_RE | | No changes (not related to IS). |
+| LT_Driver | | May be slightly reduced due to faster communication. |
+| LT_Insurer | | May be slightly reduced due to faster communication, agreed body shops. |
+| DS | | Improves because the driver is less involved in the process. |
+| UC | | Improves because less effort from employees in the process is needed. |
+| RE | | May improve because of agreed body shops. |
 
 ## Software functions
 
 | Process / activity | Software functions |
 | ------------------ | ------------------ |
-| | |
+| Claim management | Search vehicle, search driver, CRUD claim, CRUD body shop, send email. |
+| Estimation management | Search/update claim, search vehicle, CRUD estimation, send email. |
 
 ## Stakeholders
 
 | Stakeholder | PROs | CONs |
 | ----------- | ---- | ---- |
-| | | |
+| Driver | Less involved in the process (less stress, less effort) | Needs to be able to use browser |
+| Body shop | Makes the initial estimation | |
+| Insurer | Reduces cost of the processes | Needs to invest in IS |
